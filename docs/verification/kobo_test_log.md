@@ -1,13 +1,13 @@
 # KoboToolbox verification log
 
-Status: **PASSED — USER-VERIFIED ON 10 JULY 2026**
+Status: **PASSED — MANUALLY VERIFIED ON 10 JULY 2026**
 
-Complete this log only with results observed in your own KoboToolbox session.
-Do not enter real respondent information.
+The checks below were performed in KoboToolbox Preview using synthetic entries
+only.
 
 ## Environment
 
-- Tester: Repository owner (user-reported manual verification)
+- Method: Manual verification in KoboToolbox Preview
 - Date: 10 July 2026
 - Kobo server/region: Not recorded
 - Browser: Not recorded
@@ -35,17 +35,17 @@ Do not enter real respondent information.
 
 | Check | Pass/Fail | Evidence or observation |
 |---|---|---|
-| Upload without structural error | Pass | User reported successful XLSForm upload and project creation. |
-| Synthetic warning visible | Pass | User reported the warning appeared in preview. |
-| Consent skip path | Pass | User reported monitoring questions remained hidden for no consent. |
-| Training skip path | Pass | User reported training questions hid and appeared as expected. |
-| Constraints reject invalid entries | Pass | User reported the score and date constraints behaved as expected. |
-| Follow-up skip path | Pass | User reported preferred channel hid and appeared as expected. |
-| Region/site filtering | Pass | User reported site choices changed with the selected region. |
-| Preview completion | Pass | User completed the synthetic preview flow successfully. |
+| Upload without structural error | Pass | XLSForm uploaded and the project was created successfully. |
+| Synthetic warning visible | Pass | The warning appeared in preview. |
+| Consent skip path | Pass | Monitoring questions remained hidden when consent was `no`. |
+| Training skip path | Pass | Training questions hid and appeared as expected. |
+| Constraints reject invalid entries | Pass | Score and date constraints behaved as expected. |
+| Follow-up skip path | Pass | Preferred channel hid and appeared as expected. |
+| Region/site filtering | Pass | Site choices changed with the selected region. |
+| Preview completion | Pass | A synthetic preview record reached completion successfully. |
 
 ## Issues and corrective actions
 
 No issue was reported during the manual Kobo preview. No deployment or live
 data collection is claimed. Browser/server details and screenshots were not
-provided, so they are intentionally not recorded or implied.
+recorded, so they are not claimed.

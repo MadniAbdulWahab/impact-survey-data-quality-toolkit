@@ -42,10 +42,11 @@ raw CSV, so they cannot silently drift from the survey definition or the R rules
   (`ValidRegions`, `ValidSites`, `SiteList`/`SiteRegionList`, …).
 - **QC_Rules** — the seven rules and the R `qc_*` column each mirrors.
 - **Entry_Demo** — the 36-column schema (27 raw + 9 QC). Rows 3–13 are known
-  synthetic issues, one or two per category; the rows beneath are blank for you
-  to exercise the dropdowns. Conditional formatting shades any flagged record.
+  synthetic issues, one or two per category; the remaining rows support
+  additional dropdown and formula checks. Conditional formatting shades any
+  flagged record.
 - **MonitoringSummary** — region × round counts and mean satisfaction over the
-  demo sample (the full dataset is summarised by the pivots you build below).
+  demo sample (the verified pivots summarise the full dataset).
 
 ## Checkpoint — build and verify the full workbook
 
@@ -54,8 +55,8 @@ Perform these in the Excel desktop app, then record the outcome in
 
 1. Open `impact_survey_monitoring_template.xlsx`. Confirm it opens with **no
    repair warning** and that `Entry_Demo` already shows shaded flagged rows.
-2. On **Config**, set the `RawDataPath` cell (B3) to the full path of
-   `data/raw/survey_responses_synthetic.csv` on your machine.
+2. On **Config**, set the `RawDataPath` cell (B3) to the environment's full path
+   for `data/raw/survey_responses_synthetic.csv`.
 3. **Data ▸ Get Data ▸ From Other Sources ▸ Blank Query**.
 4. **Home ▸ Advanced Editor**, delete the placeholder, and paste all of
    `power_query/SurveyRaw.m`. Click **Done**. Keep the query named `SurveyRaw`.

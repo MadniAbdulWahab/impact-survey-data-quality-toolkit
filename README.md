@@ -18,8 +18,7 @@ workbook.
 
 **[Download the HTML report](reports/impact_survey_report.html) ·
 [Download the verified Excel workbook](excel/impact_survey_monitoring.xlsm) ·
-[Open the Kobo-ready XLSForm](survey/impact_survey_xlsform.xlsx) ·
-[See the interview walkthrough](docs/interview_guide.md)**
+[Open the Kobo-ready XLSForm](survey/impact_survey_xlsform.xlsx)**
 
 </div>
 
@@ -52,14 +51,14 @@ The repository brings together tasks I would handle in a monitoring-data role:
 | **Database and queries** | SQLite database with four tables, indexes, saved SQL, and a PowerShell-safe reconciliation script | [Database](data/processed/impact_survey_synthetic.sqlite) · [SQL](sql/common_queries.sql) · [Query guide](docs/query_guide.md) |
 | **Automated reporting** | Self-contained Quarto HTML report with dynamic narrative, tables, limitations, and four charts | [Rendered report](reports/impact_survey_report.html) · [Quarto source](reports/impact_survey_report.qmd) |
 | **Advanced Excel** | Verified `.xlsm` with a 420-row Power Query import, lookup labels, data validation, conditional formatting, 279 formulas, two pivots, and a VBA refresh/QC-export macro | [Workbook](excel/impact_survey_monitoring.xlsm) · [Power Query M](excel/power_query/SurveyRaw.m) · [VBA source](excel/vba/RefreshAndExportQC.bas) · [Excel verification](docs/verification/excel_test_log.md) |
-| **Data management** | Data-flow diagram, quality procedure, versioning procedure, issue log, query instructions, and interview guide | [Documentation index](#documentation) |
+| **Data management** | Data-flow diagram, quality procedure, versioning procedure, issue log, and reusable query instructions | [Documentation index](#documentation) |
 
 ## Workflow and architecture
 
 ```mermaid
 flowchart LR
     A[XLSForm source sheets] --> B[Kobo-ready XLSForm]
-    B -. user-verified preview .-> C[KoboToolbox]
+    B -. manually verified preview .-> C[KoboToolbox]
 
     D[Fixed-seed Python generator] --> E[(Immutable raw CSV)]
     D --> F[Injected-issue truth file]
@@ -164,13 +163,13 @@ I only marked a component complete after running it and recording the result.
 |---|---|
 | Python suite | **18 tests passed**, including deterministic builds and final `.xlsm` package checks |
 | XLSForm | **pyxform 4.5.0 structural validation passed** |
-| KoboToolbox | Upload, preview, constraints, cascading choices, and skip paths **user-verified** |
+| KoboToolbox | Upload, preview, constraints, cascading choices, and skip paths **manually verified** |
 | R suite | **8 test blocks / 22 expectations passed** |
 | SQLite | Four tables and saved query patterns reconciled; clean rebuild hash is deterministic |
 | Quarto | Self-contained HTML report rendered with four embedded charts |
 | Excel | 420-row import, two pivots, formula flags, validation, conditional formatting, and VBA export verified |
 | Controlled refresh | Disposable source changed query and pivot totals **420 → 419 → 420** |
-| Privacy audit | Public `.xlsm` contains no local user path or personal author metadata |
+| Privacy audit | Public `.xlsm` contains no local filesystem path or author metadata |
 
 Detailed logs:
 
@@ -253,7 +252,6 @@ docs/              procedures, diagrams, verification logs, screenshots
 | [Query guide](docs/query_guide.md) | Shows how to answer and document common monitoring questions |
 | [Synthetic-data design](docs/synthetic_data_design.md) | Documents seed, boundaries, injections, and qualitative phrases |
 | [Excel guide](excel/README.md) | Rebuilds and reviews Power Query, pivots, formulas, and VBA |
-| [Interview walkthrough](docs/interview_guide.md) | Provides a concise, evidence-based project explanation |
 
 ## Key design decisions
 

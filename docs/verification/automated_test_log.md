@@ -2,7 +2,7 @@
 
 All data referenced below is synthetic.
 
-## 10 July 2026 — Day 1
+## 10 July 2026 — Initial build verification
 
 Environment observed:
 
@@ -46,9 +46,10 @@ Injected issue records recorded by the generator:
 
 The byte-reproducibility test generated the dataset twice in separate temporary
 directories and compared the resulting CSV bytes. It passed. These injection
-counts are not yet R detection results; R validation remains untested.
+counts describe deliberate data generation, not the separate R detection
+results recorded in `r_test_log.md`.
 
-## 10 July 2026 — Day 2 regression check
+## 10 July 2026 — Reproducibility regression check
 
 The XLSForm builder was updated to normalize Excel archive metadata and to build
 test workbooks outside the repository. Two consecutive builds produced the same
