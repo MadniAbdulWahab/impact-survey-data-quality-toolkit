@@ -32,7 +32,7 @@ workbook.
 |---:|---:|---:|---:|
 | Fixed-seed generation | Missing, duplicate, code, date, range, consistency, skip logic | Affecting 58 submissions | Kobo/XLSForm, Python, R/SQLite/Quarto, Excel |
 
-The repository brings together tasks I would handle in a monitoring-data role:
+This project brings together practical skills across the survey-data lifecycle:
 
 - designing and testing a survey instrument;
 - maintaining clear raw, interim, and processed data layers;
