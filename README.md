@@ -86,7 +86,7 @@ the original evidence intact and makes every reported result reproducible.
 ## Visual evidence
 
 The images below were captured from the tested local artifacts, not created as
-mock-ups. See [screenshot provenance](docs/screenshots/README.md).
+mock-ups. See [screenshot provenance](docs/screenshots).
 
 <table>
   <tr>
