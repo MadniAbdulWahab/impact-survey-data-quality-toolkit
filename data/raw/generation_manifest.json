@@ -1,0 +1,20 @@
+{
+  "actual_response_count": 420,
+  "fixed_reference_date": "2025-10-01",
+  "generator": "scripts/generate_synthetic_data.py",
+  "injected_issue_counts": {
+    "consistency_violation": 4,
+    "duplicate_response_id": 10,
+    "inconsistent_date": 6,
+    "invalid_code": 6,
+    "missing_required": 8,
+    "out_of_range": 6,
+    "skip_logic_violation": 8
+  },
+  "injected_issue_records": 48,
+  "requested_response_count": 420,
+  "seed": 20260710,
+  "sha256": "f257d16f6138358401bcdf8c653bdd3ac491f1f71537d9d4c26ff0b00ef34373",
+  "survey_version": "1.0.0",
+  "synthetic_data_notice": "SYNTHETIC DATA - NOT REAL PEOPLE OR PROGRAMME OPERATIONS"
+}

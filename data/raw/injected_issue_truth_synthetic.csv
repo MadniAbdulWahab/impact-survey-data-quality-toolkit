@@ -1,0 +1,49 @@
+issue_type,submission_id,response_id,field,reason
+consistency_violation,SUB-0197,SYN-0197,site_code,Site deliberately does not belong to region
+consistency_violation,SUB-0216,SYN-0216,site_code,Site deliberately does not belong to region
+consistency_violation,SUB-0353,SYN-0353,site_code,Site deliberately does not belong to region
+consistency_violation,SUB-0410,SYN-0410,site_code,Site deliberately does not belong to region
+duplicate_response_id,SUB-DUP-001,SYN-0239,response_id,Response identifier deliberately duplicated
+duplicate_response_id,SUB-DUP-002,SYN-0066,response_id,Response identifier deliberately duplicated
+duplicate_response_id,SUB-DUP-003,SYN-0246,response_id,Response identifier deliberately duplicated
+duplicate_response_id,SUB-DUP-004,SYN-0056,response_id,Response identifier deliberately duplicated
+duplicate_response_id,SUB-DUP-005,SYN-0206,response_id,Response identifier deliberately duplicated
+duplicate_response_id,SUB-DUP-006,SYN-0305,response_id,Response identifier deliberately duplicated
+duplicate_response_id,SUB-DUP-007,SYN-0395,response_id,Response identifier deliberately duplicated
+duplicate_response_id,SUB-DUP-008,SYN-0296,response_id,Response identifier deliberately duplicated
+duplicate_response_id,SUB-DUP-009,SYN-0398,response_id,Response identifier deliberately duplicated
+duplicate_response_id,SUB-DUP-010,SYN-0381,response_id,Response identifier deliberately duplicated
+inconsistent_date,SUB-0009,SYN-0009,training_date,Training deliberately before programme start
+inconsistent_date,SUB-0073,SYN-0073,program_start_date,Programme start deliberately after interview
+inconsistent_date,SUB-0169,SYN-0169,program_start_date,Programme start deliberately after interview
+inconsistent_date,SUB-0183,SYN-0183,interview_date,Interview deliberately outside survey period
+inconsistent_date,SUB-0233,SYN-0233,training_date,Training deliberately before programme start
+inconsistent_date,SUB-0369,SYN-0369,interview_date,Interview deliberately outside survey period
+invalid_code,SUB-0069,SYN-0069,enumerator_code,Invalid code deliberately set to ENUM_99
+invalid_code,SUB-0140,SYN-0140,training_topic,Invalid code deliberately set to other_invalid
+invalid_code,SUB-0146,SYN-0146,age_group,Invalid code deliberately set to under_18
+invalid_code,SUB-0192,SYN-0192,region_code,Invalid code deliberately set to CENTRAL
+invalid_code,SUB-0268,SYN-0268,gender,Invalid code deliberately set to unknown_code
+invalid_code,SUB-0388,SYN-0388,site_code,Invalid code deliberately set to X99
+missing_required,SUB-0116,SYN-0116,gender,Required field deliberately blank
+missing_required,SUB-0128,SYN-0128,region_code,Required field deliberately blank
+missing_required,SUB-0144,SYN-0144,site_code,Required field deliberately blank
+missing_required,SUB-0289,SYN-0289,gender,Required field deliberately blank
+missing_required,SUB-0298,SYN-0298,age_group,Required field deliberately blank
+missing_required,SUB-0304,SYN-0304,region_code,Required field deliberately blank
+missing_required,SUB-0311,SYN-0311,age_group,Required field deliberately blank
+missing_required,SUB-0358,SYN-0358,site_code,Required field deliberately blank
+out_of_range,SUB-0001,SYN-0001,completion_minutes,Out-of-range value deliberately set to 180
+out_of_range,SUB-0215,SYN-0215,satisfaction_score,Out-of-range value deliberately set to 9
+out_of_range,SUB-0309,SYN-0309,household_size,Out-of-range value deliberately set to 99
+out_of_range,SUB-0317,SYN-0317,household_size,Out-of-range value deliberately set to 0
+out_of_range,SUB-0329,SYN-0329,completion_minutes,Out-of-range value deliberately set to 1
+out_of_range,SUB-0341,SYN-0341,household_size,Out-of-range value deliberately set to 45
+skip_logic_violation,SUB-0033,SYN-0033,training_topic,Training fields populated when participation is no
+skip_logic_violation,SUB-0119,SYN-0119,training_topic,Training fields populated when participation is no
+skip_logic_violation,SUB-0135,SYN-0135,training_topic,Training fields populated when participation is no
+skip_logic_violation,SUB-0171,SYN-0171,training_topic,Training fields populated when participation is no
+skip_logic_violation,SUB-0178,SYN-0178,training_topic,Training fields populated when participation is no
+skip_logic_violation,SUB-0245,SYN-0245,preferred_channel,Channel populated when follow-up request is no
+skip_logic_violation,SUB-0288,SYN-0288,preferred_channel,Channel populated when follow-up request is no
+skip_logic_violation,SUB-0340,SYN-0340,preferred_channel,Channel populated when follow-up request is no

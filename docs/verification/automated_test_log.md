@@ -1,0 +1,50 @@
+# Automated verification log
+
+All data referenced below is synthetic.
+
+## 10 July 2026 — Day 1
+
+Environment observed:
+
+- Windows PowerShell 7.5.8
+- Python 3.11.8
+- pandas 2.2.2
+- NumPy 2.3.1
+- openpyxl 3.1.5 in the project virtual environment
+- pytest 8.3.5
+- pyxform 4.5.0
+
+Commands run from the repository root:
+
+```powershell
+.\.venv\Scripts\python.exe scripts\build_xlsform.py
+.\.venv\Scripts\python.exe -m pytest
+.\.venv\Scripts\python.exe scripts\validate_xlsform.py
+```
+
+Observed results:
+
+- XLSForm builder exited with code 0.
+- Python tests: `8 passed in 12.69s`.
+- pyxform conversion and structural validation exited with code 0.
+- pyxform reported no warnings.
+- Generated response count: 420.
+- Raw CSV SHA-256:
+  `f257d16f6138358401bcdf8c653bdd3ac491f1f71537d9d4c26ff0b00ef34373`.
+
+Injected issue records recorded by the generator:
+
+| Issue type | Manifest count |
+|---|---:|
+| Missing required | 8 |
+| Invalid code | 6 |
+| Inconsistent date | 6 |
+| Out of range | 6 |
+| Skip-logic violation | 8 |
+| Region/site consistency violation | 4 |
+| Duplicate response identifier | 10 |
+
+The byte-reproducibility test generated the dataset twice in separate temporary
+directories and compared the resulting CSV bytes. It passed. These injection
+counts are not yet R detection results; R validation remains untested.
+

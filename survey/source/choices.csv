@@ -1,0 +1,45 @@
+list_name,name,label,region_code
+yes_no,yes,Yes,
+yes_no,no,No,
+survey_round,ROUND_1,Round 1,
+survey_round,ROUND_2,Round 2,
+region,NORTH,North Region (fictional),
+region,SOUTH,South Region (fictional),
+region,EAST,East Region (fictional),
+region,WEST,West Region (fictional),
+site,N01,Site N01 (fictional),NORTH
+site,N02,Site N02 (fictional),NORTH
+site,N03,Site N03 (fictional),NORTH
+site,S01,Site S01 (fictional),SOUTH
+site,S02,Site S02 (fictional),SOUTH
+site,S03,Site S03 (fictional),SOUTH
+site,E01,Site E01 (fictional),EAST
+site,E02,Site E02 (fictional),EAST
+site,E03,Site E03 (fictional),EAST
+site,W01,Site W01 (fictional),WEST
+site,W02,Site W02 (fictional),WEST
+site,W03,Site W03 (fictional),WEST
+enumerator,ENUM_01,Enumerator 01 (fictional),
+enumerator,ENUM_02,Enumerator 02 (fictional),
+enumerator,ENUM_03,Enumerator 03 (fictional),
+enumerator,ENUM_04,Enumerator 04 (fictional),
+enumerator,ENUM_05,Enumerator 05 (fictional),
+enumerator,ENUM_06,Enumerator 06 (fictional),
+enumerator,ENUM_07,Enumerator 07 (fictional),
+enumerator,ENUM_08,Enumerator 08 (fictional),
+age_group,18_24,18–24,
+age_group,25_34,25–34,
+age_group,35_44,35–44,
+age_group,45_54,45–54,
+age_group,55_plus,55 or older,
+gender,woman,Woman,
+gender,man,Man,
+gender,non_binary,Non-binary,
+gender,prefer_not,Prefer not to say,
+training_topic,planning,Planning,
+training_topic,financial_skills,Financial skills,
+training_topic,digital_skills,Digital skills,
+training_topic,leadership,Leadership,
+preferred_channel,community_meeting,Community meeting,
+preferred_channel,printed_material,Printed material,
+preferred_channel,radio,Radio,

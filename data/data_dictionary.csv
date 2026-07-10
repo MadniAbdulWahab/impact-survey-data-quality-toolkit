@@ -1,0 +1,28 @@
+synthetic_data_notice,variable,type,description,valid_values_or_rule,required_when
+SYNTHETIC DATA - NOT REAL PEOPLE OR PROGRAMME OPERATIONS,submission_id,string,Unique synthetic submission identifier,non-missing; unique,all
+SYNTHETIC DATA - NOT REAL PEOPLE OR PROGRAMME OPERATIONS,response_id,string,Intended unique monitoring response identifier,SYN-0001 format; unique,all
+SYNTHETIC DATA - NOT REAL PEOPLE OR PROGRAMME OPERATIONS,synthetic_data,string,Explicit synthetic-data marker,must equal yes,all
+SYNTHETIC DATA - NOT REAL PEOPLE OR PROGRAMME OPERATIONS,survey_version,string,Version of the survey instrument,1.0.0,all
+SYNTHETIC DATA - NOT REAL PEOPLE OR PROGRAMME OPERATIONS,survey_round,categorical,Monitoring round,ROUND_1 or ROUND_2,consent=yes
+SYNTHETIC DATA - NOT REAL PEOPLE OR PROGRAMME OPERATIONS,interview_date,date,Synthetic interview date,2025-04-01 to 2025-09-30,consent=yes
+SYNTHETIC DATA - NOT REAL PEOPLE OR PROGRAMME OPERATIONS,program_start_date,date,Start date of the fictional activity,on/before interview_date,consent=yes
+SYNTHETIC DATA - NOT REAL PEOPLE OR PROGRAMME OPERATIONS,region_code,categorical,Fictional region code,"NORTH, SOUTH, EAST, WEST",consent=yes
+SYNTHETIC DATA - NOT REAL PEOPLE OR PROGRAMME OPERATIONS,site_code,categorical,Fictional site code,must belong to selected region,consent=yes
+SYNTHETIC DATA - NOT REAL PEOPLE OR PROGRAMME OPERATIONS,enumerator_code,categorical,Fictional enumerator identifier,ENUM_01 to ENUM_08,consent=yes
+SYNTHETIC DATA - NOT REAL PEOPLE OR PROGRAMME OPERATIONS,consent,categorical,Agreement to continue the fictional survey,yes or no,all
+SYNTHETIC DATA - NOT REAL PEOPLE OR PROGRAMME OPERATIONS,age_group,categorical,Age band; no exact birth date collected,"18_24, 25_34, 35_44, 45_54, 55_plus",consent=yes
+SYNTHETIC DATA - NOT REAL PEOPLE OR PROGRAMME OPERATIONS,gender,categorical,Self-described gender category,"woman, man, non_binary, prefer_not",consent=yes
+SYNTHETIC DATA - NOT REAL PEOPLE OR PROGRAMME OPERATIONS,household_size,integer,Number of people in the household,1 to 20,consent=yes
+SYNTHETIC DATA - NOT REAL PEOPLE OR PROGRAMME OPERATIONS,disability_access,categorical,Whether accessibility support was needed,yes or no,consent=yes
+SYNTHETIC DATA - NOT REAL PEOPLE OR PROGRAMME OPERATIONS,participated_training,categorical,Participation in the fictional training,yes or no,consent=yes
+SYNTHETIC DATA - NOT REAL PEOPLE OR PROGRAMME OPERATIONS,training_date,date,Date of training attendance,program_start_date through interview_date,participated_training=yes
+SYNTHETIC DATA - NOT REAL PEOPLE OR PROGRAMME OPERATIONS,training_topic,categorical,Main training topic,"planning, financial_skills, digital_skills, leadership",participated_training=yes
+SYNTHETIC DATA - NOT REAL PEOPLE OR PROGRAMME OPERATIONS,satisfaction_score,integer,Satisfaction rating,1 to 5,participated_training=yes
+SYNTHETIC DATA - NOT REAL PEOPLE OR PROGRAMME OPERATIONS,knowledge_before,integer,Self-rated knowledge before training,1 to 5,participated_training=yes
+SYNTHETIC DATA - NOT REAL PEOPLE OR PROGRAMME OPERATIONS,knowledge_after,integer,Self-rated knowledge after training,1 to 5,participated_training=yes
+SYNTHETIC DATA - NOT REAL PEOPLE OR PROGRAMME OPERATIONS,used_skill,categorical,Whether a training skill has been applied,yes or no,participated_training=yes
+SYNTHETIC DATA - NOT REAL PEOPLE OR PROGRAMME OPERATIONS,service_access,integer,Ease of accessing services,1 to 5,consent=yes
+SYNTHETIC DATA - NOT REAL PEOPLE OR PROGRAMME OPERATIONS,follow_up_requested,categorical,Whether more information was requested,yes or no,consent=yes
+SYNTHETIC DATA - NOT REAL PEOPLE OR PROGRAMME OPERATIONS,preferred_channel,categorical,Non-personal follow-up channel,"community_meeting, printed_material, radio, none",follow_up_requested=yes
+SYNTHETIC DATA - NOT REAL PEOPLE OR PROGRAMME OPERATIONS,open_comment,text,Optional synthetic qualitative comment,optional; synthetic phrase library,consent=yes
+SYNTHETIC DATA - NOT REAL PEOPLE OR PROGRAMME OPERATIONS,completion_minutes,number,Synthetic interview duration in minutes,3 to 60,consent=yes
