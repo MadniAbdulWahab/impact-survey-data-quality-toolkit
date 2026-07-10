@@ -2,10 +2,11 @@
 
 # Impact Survey Data Quality & Reporting Toolkit
 
-### An end-to-end monitoring-data portfolio project
+### Survey data quality from collection to reporting
 
-From XLSForm survey design and reproducible synthetic data to automated quality
-checks, SQL queries, R reporting, and an Excel Power Query/VBA monitoring
+I built this toolkit around a fictional community training follow-up survey. It
+starts with the XLSForm, follows the data through quality checks and analysis,
+and finishes with an R report, a queryable database, and an Excel monitoring
 workbook.
 
 [![Data](https://img.shields.io/badge/data-synthetic%20only-2F6B4F)](docs/synthetic_data_design.md)
@@ -23,8 +24,8 @@ workbook.
 </div>
 
 > [!IMPORTANT]
-> This is a general portfolio project built entirely with synthetic data. It
-> represents no real person, organisation, programme, or field operation.
+> All data in this repository is synthetic. No record represents a real person,
+> organisation, programme, or field operation.
 
 ## Project at a glance
 
@@ -32,8 +33,7 @@ workbook.
 |---:|---:|---:|---:|
 | Fixed-seed generation | Missing, duplicate, code, date, range, consistency, skip logic | Affecting 58 submissions | Kobo/XLSForm, Python, R/SQLite/Quarto, Excel |
 
-This project demonstrates the practical workflow expected in data-assistant,
-monitoring and evaluation, NGO, and international-development roles:
+The repository brings together tasks I would handle in a monitoring-data role:
 
 - designing and testing a survey instrument;
 - maintaining clear raw, interim, and processed data layers;
@@ -78,9 +78,9 @@ flowchart LR
     O --> P[VBA QC export]
 ```
 
-The design deliberately keeps raw data immutable. Automated rules identify
-problems, while cleaning decisions are applied only to a documented analysis
-copy. This preserves traceability and makes every reported result reproducible.
+I keep the raw data immutable. Automated rules identify problems, while
+cleaning decisions are applied only to a documented analysis copy. That keeps
+the original evidence intact and makes every reported result reproducible.
 
 ## Visual evidence
 
@@ -124,8 +124,8 @@ distinct affected submissions.
 
 ## Synthetic findings
 
-These values demonstrate a reporting workflow; they are not findings about a
-real population or programme.
+These values come from the generated dataset. They show what the reporting
+layer produces, but they are not findings about a real population or programme.
 
 | Indicator | Result |
 |---|---:|
@@ -141,13 +141,12 @@ real population or programme.
 
 The qualitative component assigns the 72 non-empty synthetic comments to four
 transparent themes. Positive-learning comments form the largest group at
-43.1%. The method is intentionally inspectable and is not presented as
+43.1%. I kept the method simple and inspectable; it is not presented as
 generalisable qualitative research.
 
 ## Verification
 
-Claims in this repository are marked complete only after an evidence-producing
-check.
+I only marked a component complete after running it and recording the result.
 
 | Check | Verified result |
 |---|---|
@@ -244,19 +243,18 @@ docs/              procedures, diagrams, verification logs, screenshots
 | [Excel guide](excel/README.md) | Rebuilds and reviews Power Query, pivots, formulas, and VBA |
 | [Interview walkthrough](docs/interview_guide.md) | Provides a concise, evidence-based project explanation |
 
-## Design choices I can explain in an interview
+## Key design decisions
 
-- **Why immutable raw data?** It preserves the received evidence and makes every
+- **Immutable raw data:** I preserve the received evidence and make every
   downstream change traceable.
-- **Why an injected-issue truth file?** It lets tests prove that known problems
-  are detected rather than merely producing plausible-looking counts.
-- **Why separate validated and analysis datasets?** Detection and analytical
-  treatment are different decisions and should remain auditable.
-- **Why implement QC in both R and Excel?** R provides authoritative,
-  reproducible dataset-wide validation; Excel provides a familiar operational
-  interface for monitoring staff.
-- **Why keep M and VBA as text files?** Binary workbooks are difficult to
-  review in Git, so implementation sources are versioned separately.
+- **Injected-issue truth file:** the tests can prove that known problems were
+  detected instead of merely producing plausible-looking counts.
+- **Separate validated and analysis datasets:** detecting a problem and deciding
+  how to treat it analytically are different decisions, so I keep both visible.
+- **QC in both R and Excel:** R provides reproducible, dataset-wide validation;
+  Excel provides a familiar operational interface for monitoring staff.
+- **M and VBA stored as text:** binary workbooks are difficult to review in Git,
+  so I version the implementation sources separately.
 
 ## Scope and limitations
 
@@ -268,9 +266,10 @@ docs/              procedures, diagrams, verification logs, screenshots
 - Excel pivots are backed by the loaded worksheet table; no Excel Data Model or
   slicers are claimed.
 - Synthetic qualitative comments come from a small phrase library, so the theme
-  results demonstrate workflow rather than real qualitative inference.
-- Duplicate resolution keeps the first submission ID in lexical order for the
-  demonstration. A real project would require confirmation from the data owner.
+  results show how the method works rather than supporting real inference.
+- For duplicate resolution in this dataset, I keep the first submission ID in
+  lexical order. With real data, I would confirm that decision with the data
+  owner.
 
 ## License
 
