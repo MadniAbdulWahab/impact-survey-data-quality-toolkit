@@ -13,6 +13,3 @@ synthetic data only. They are evidence captures, not mock-ups.
   `MonitoringSummary` sheet.
 - `quarto_report_overview.png`: headless-browser screenshot of the rendered
   `reports/impact_survey_report.html` file.
-
-The Kobo test is documented in `docs/verification/kobo_test_log.md`. No Kobo
-screenshot was provided, so none is claimed.
