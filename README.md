@@ -1,62 +1,190 @@
-# Impact Survey Data Quality and Reporting Toolkit
+<div align="center">
 
-> **Portfolio project using synthetic data only.** No record represents a real
-> person, programme, organisation, or field operation.
+# Impact Survey Data Quality & Reporting Toolkit
 
-This complete portfolio demonstration presents a reproducible
-monitoring-data workflow spanning XLSForm survey design, deliberate data-quality
-problems, R validation and reporting, SQLite queries, and an Excel monitoring
-workbook. The fictional case is a community-services and training follow-up
-survey; it is not connected to a real organisation.
+### An end-to-end monitoring-data portfolio project
 
-## Current verified status
+From XLSForm survey design and reproducible synthetic data to automated quality
+checks, SQL queries, R reporting, and an Excel Power Query/VBA monitoring
+workbook.
 
-The status table is updated only after evidence-producing checks are run.
+[![Data](https://img.shields.io/badge/data-synthetic%20only-2F6B4F)](docs/synthetic_data_design.md)
+[![Python](https://img.shields.io/badge/Python-3.11-3776AB?logo=python&logoColor=white)](requirements.txt)
+[![R](https://img.shields.io/badge/R-4.6.1-276DC3?logo=r&logoColor=white)](renv.lock)
+[![Excel](https://img.shields.io/badge/Excel-Power%20Query%20%2B%20VBA-217346?logo=microsoftexcel&logoColor=white)](excel/README.md)
+[![Tests](https://img.shields.io/badge/tests-18%20Python%20%2B%2022%20R%20expectations-passing-brightgreen)](docs/verification/)
+[![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
 
-| Component | Status |
+**[Download the HTML report](reports/impact_survey_report.html) ·
+[Download the verified Excel workbook](excel/impact_survey_monitoring.xlsm) ·
+[Open the Kobo-ready XLSForm](survey/impact_survey_xlsform.xlsx) ·
+[See the interview walkthrough](docs/interview_guide.md)**
+
+</div>
+
+> [!IMPORTANT]
+> This is a general portfolio project built entirely with synthetic data. It
+> represents no real person, organisation, programme, or field operation.
+
+## Project at a glance
+
+| 420 synthetic responses | 7 automated QC rules | 60 record-level flags | 4 integrated tool layers |
+|---:|---:|---:|---:|
+| Fixed-seed generation | Missing, duplicate, code, date, range, consistency, skip logic | Affecting 58 submissions | Kobo/XLSForm, Python, R/SQLite/Quarto, Excel |
+
+This project demonstrates the practical workflow expected in data-assistant,
+monitoring and evaluation, NGO, and international-development roles:
+
+- designing and testing a survey instrument;
+- maintaining clear raw, interim, and processed data layers;
+- detecting and documenting realistic data-quality problems;
+- cleaning, analysing, querying, and reporting survey data in R and SQL;
+- building operational Excel tools with Power Query, formulas, pivots, and VBA;
+- writing procedures that make updates, decisions, and limitations auditable.
+
+## What I built
+
+| Component | Achievement | Evidence |
+|---|---|---|
+| **Survey collection** | Kobo-ready XLSForm with constraints, skip logic, cascading region/site choices, consent path, and qualitative questions | [XLSForm](survey/impact_survey_xlsform.xlsx) · [Git-friendly source sheets](survey/source/) · [Kobo verification](docs/verification/kobo_test_log.md) |
+| **Synthetic monitoring data** | 420 deterministic responses generated with seed `20260710`, including a machine-readable injected-issue truth file | [Generator](scripts/generate_synthetic_data.py) · [Manifest](data/raw/generation_manifest.json) · [Data dictionary](data/data_dictionary.csv) |
+| **R quality pipeline** | Character-first import, explicit typing, seven validation rules, cleaning audit, descriptive statistics, cross-tabulations, and qualitative theme coding | [R modules](R/) · [Pipeline](scripts/run_pipeline.R) · [R verification](docs/verification/r_test_log.md) |
+| **Database and queries** | SQLite database with four tables, indexes, saved SQL, and a PowerShell-safe reconciliation script | [Database](data/processed/impact_survey_synthetic.sqlite) · [SQL](sql/common_queries.sql) · [Query guide](docs/query_guide.md) |
+| **Automated reporting** | Self-contained Quarto HTML report with dynamic narrative, tables, limitations, and four charts | [Rendered report](reports/impact_survey_report.html) · [Quarto source](reports/impact_survey_report.qmd) |
+| **Advanced Excel** | Verified `.xlsm` with a 420-row Power Query import, lookup labels, data validation, conditional formatting, 279 formulas, two pivots, and a VBA refresh/QC-export macro | [Workbook](excel/impact_survey_monitoring.xlsm) · [Power Query M](excel/power_query/SurveyRaw.m) · [VBA source](excel/vba/RefreshAndExportQC.bas) · [Excel verification](docs/verification/excel_test_log.md) |
+| **Data management** | Data-flow diagram, quality procedure, versioning procedure, issue log, query instructions, and interview guide | [Documentation index](#documentation) |
+
+## Workflow and architecture
+
+```mermaid
+flowchart LR
+    A[XLSForm source sheets] --> B[Kobo-ready XLSForm]
+    B -. user-verified preview .-> C[KoboToolbox]
+
+    D[Fixed-seed Python generator] --> E[(Immutable raw CSV)]
+    D --> F[Injected-issue truth file]
+
+    E --> G[R import and validation]
+    F --> H[Automated tests]
+    G --> H
+    G --> I[(Validated and analysis CSVs)]
+    G --> J[(SQLite database)]
+    I --> K[Quarto HTML report]
+    J --> L[Saved SQL queries]
+
+    E --> M[Excel Power Query]
+    M --> N[420-row SurveyTbl]
+    N --> O[Pivots and monitoring views]
+    O --> P[VBA QC export]
+```
+
+The design deliberately keeps raw data immutable. Automated rules identify
+problems, while cleaning decisions are applied only to a documented analysis
+copy. This preserves traceability and makes every reported result reproducible.
+
+## Visual evidence
+
+The images below were captured from the tested local artifacts, not created as
+mock-ups. See [screenshot provenance](docs/screenshots/README.md).
+
+<table>
+  <tr>
+    <td width="50%">
+      <img src="docs/screenshots/excel_pivot_region_round.png" alt="Excel region and round pivot with a grand total of 420">
+      <br><strong>Excel monitoring pivot</strong><br>
+      Power Query import reconciled to 420 synthetic submissions.
+    </td>
+    <td width="50%">
+      <img src="docs/screenshots/excel_qc_export.png" alt="Excel QC export produced by the embedded VBA macro">
+      <br><strong>VBA QC export</strong><br>
+      The macro refreshes workbook objects and exports rule-level QC counts.
+    </td>
+  </tr>
+</table>
+
+### Automated HTML report
+
+![Rendered Quarto monitoring report showing QC results and a bar chart](docs/screenshots/quarto_report_overview.png)
+
+## Data-quality rules
+
+| Rule | Example problem detected | Analysis treatment |
+|---|---|---|
+| Missing required | Region, site, age group, or conditional training value is blank | Retain the flag; exclude the missing value from its denominator |
+| Duplicate identifier | Two submissions share one intended-unique response ID | Keep one documented copy in the analysis dataset |
+| Invalid code | Value is outside an approved choice list | Set the invalid code to missing in the analysis copy |
+| Date consistency | Activity starts after interview, or training falls outside the valid sequence | Retain and flag for source review |
+| Out of range | Household size, score, or duration exceeds documented limits | Set the invalid numeric value to missing in the analysis copy |
+| Region/site consistency | Site does not belong to the selected region | Retain both raw codes and flag the conflict |
+| Skip logic | Training or follow-up fields are populated when the parent answer is `no` | Retain raw evidence and exclude the inapplicable answer from interpretation |
+
+Detected categories can overlap. For example, an invalid region can also produce
+a region/site inconsistency. The project therefore reports both total flags and
+distinct affected submissions.
+
+## Synthetic findings
+
+These values demonstrate a reporting workflow; they are not findings about a
+real population or programme.
+
+| Indicator | Result |
+|---|---:|
+| Raw synthetic submissions | 420 |
+| Consented submissions | 413 |
+| Unique consented responses used for analysis | 403 |
+| Submissions with at least one QC issue | 58 |
+| Total record-level QC flags | 60 |
+| Synthetic training participation | 75.7% |
+| Mean valid satisfaction | 3.85 / 5 |
+| Skill use among synthetic training participants | 64.3% |
+| Synthetic qualitative comments coded | 72 |
+
+The qualitative component assigns the 72 non-empty synthetic comments to four
+transparent themes. Positive-learning comments form the largest group at
+43.1%. The method is intentionally inspectable and is not presented as
+generalisable qualitative research.
+
+## Verification
+
+Claims in this repository are marked complete only after an evidence-producing
+check.
+
+| Check | Verified result |
 |---|---|
-| Synthetic-data generator, survey, and Excel build | **Tested:** 420 rows; 18 Python tests passed |
-| XLSForm local structural validation | **Passed:** pyxform 4.5.0 |
-| KoboToolbox preview and logic test | **Passed:** user-verified preview and logic paths |
-| R pipeline and automated tests | **Passed:** R 4.6.1; 8 test blocks / 22 expectations; user rerun |
-| SQLite database and saved queries | **Tested:** four tables and common query patterns |
-| Quarto HTML report | **Rendered:** Quarto 1.9.38; four embedded charts |
-| Excel Power Query, pivots, and VBA | **Tested:** Excel 16.0.20131; 420-row query import, two pivots reconciled, VBA QC export verified |
+| Python suite | **18 tests passed**, including deterministic builds and final `.xlsm` package checks |
+| XLSForm | **pyxform 4.5.0 structural validation passed** |
+| KoboToolbox | Upload, preview, constraints, cascading choices, and skip paths **user-verified** |
+| R suite | **8 test blocks / 22 expectations passed** |
+| SQLite | Four tables and saved query patterns reconciled; clean rebuild hash is deterministic |
+| Quarto | Self-contained HTML report rendered with four embedded charts |
+| Excel | 420-row import, two pivots, formula flags, validation, conditional formatting, and VBA export verified |
+| Controlled refresh | Disposable source changed query and pivot totals **420 → 419 → 420** |
+| Privacy audit | Public `.xlsm` contains no local user path or personal author metadata |
 
-See [`docs/verification/automated_test_log.md`](docs/verification/automated_test_log.md)
-and [`docs/verification/r_test_log.md`](docs/verification/r_test_log.md) for
-commands and observed results. Kobo and Excel have separate application-level
-verification logs; the Excel checkpoint results are recorded in
-[`docs/verification/excel_test_log.md`](docs/verification/excel_test_log.md).
+Detailed logs:
 
-## Architecture
+- [Automated Python and XLSForm checks](docs/verification/automated_test_log.md)
+- [R, SQLite, and Quarto checks](docs/verification/r_test_log.md)
+- [KoboToolbox test log](docs/verification/kobo_test_log.md)
+- [Excel test and publication audit](docs/verification/excel_test_log.md)
 
-The generator writes immutable synthetic raw data and an injection-truth file.
-The R pipeline parses and validates every raw record, writes a long issue log
-and a deduplicated analysis copy, populates SQLite, creates four charts, and
-feeds the Quarto report. Excel independently imports the raw extract through
-Power Query and exposes operational QC and monitoring views. See
-[`docs/data_flow.md`](docs/data_flow.md).
+## Reproduce the project
 
-## Reproduce the completed Day 1 components
-
-From PowerShell in the repository root:
+### 1. Python: regenerate data and survey artifacts
 
 ```powershell
 python -m venv --system-site-packages .venv
 .\.venv\Scripts\python.exe -m pip install -r requirements.txt
 .\.venv\Scripts\python.exe scripts\generate_synthetic_data.py
 .\.venv\Scripts\python.exe scripts\build_xlsform.py
+.\.venv\Scripts\python.exe scripts\build_excel_template.py
 .\.venv\Scripts\python.exe -m pytest
 .\.venv\Scripts\python.exe scripts\validate_xlsform.py
 ```
 
-The generated manifest records fixed seed `20260710`, the expected row count,
-issue counts, and the raw CSV SHA-256 hash.
+### 2. R and SQLite: run the pipeline and tests
 
-## Run the R pipeline and report
-
-Install R 4.6.1 and Quarto, then run from the repository root:
+Install R 4.6.1 and Quarto, then run:
 
 ```powershell
 Rscript -e "if (!requireNamespace('renv', quietly = TRUE)) install.packages('renv', repos = 'https://cloud.r-project.org')"
@@ -64,111 +192,86 @@ Rscript -e "renv::restore(prompt = FALSE)"
 Rscript scripts/run_pipeline.R
 Rscript tests/testthat.R
 Rscript scripts/check_database.R
+```
+
+### 3. Quarto: render the report
+
+```powershell
 quarto render reports/impact_survey_report.qmd
 ```
 
-The exact R dependency versions are recorded in `renv.lock`. The final report
-is [`reports/impact_survey_report.html`](reports/impact_survey_report.html).
+### 4. Excel: refresh the verified workbook
 
-## Build the Excel monitoring template
+Open `excel/impact_survey_monitoring.xlsm`, set `Config!B3` (`RawDataPath`) to
+the full local path of `data/raw/survey_responses_synthetic.csv`, and choose
+**Data → Refresh All**. See the [Excel build and review guide](excel/README.md)
+for the Power Query, pivot, and VBA steps.
 
-The workbook is generated deterministically, like the XLSForm:
+## Repository structure
 
-```powershell
-.\.venv\Scripts\python.exe scripts\build_excel_template.py
+```text
+data/
+  raw/             immutable synthetic extract, truth file, manifest
+  interim/         disposable pipeline working layer
+  processed/       validated data, analysis data, QC outputs, SQLite
+survey/
+  source/          diffable XLSForm survey, choices, and settings sheets
+  impact_survey_xlsform.xlsx
+excel/
+  power_query/     exported M source
+  vba/             exported VBA source
+  examples/        curated verified macro output
+  impact_survey_monitoring_template.xlsx
+  impact_survey_monitoring.xlsm
+R/                 import, validation, cleaning, summary, database modules
+reports/           Quarto source, self-contained HTML, figures
+sql/               saved monitoring queries
+scripts/           reproducible entry points and artifact builders
+tests/             Python and R validation tests
+docs/              procedures, diagrams, verification logs, screenshots
 ```
 
-This writes [`excel/impact_survey_monitoring_template.xlsx`](excel/impact_survey_monitoring_template.xlsx),
-whose `Entry_Demo` sheet works with no wiring. The tested macro-enabled artifact
-is [`excel/impact_survey_monitoring.xlsm`](excel/impact_survey_monitoring.xlsm).
-Its cached table and pivots contain the verified 420-row synthetic extract; set
-`RawDataPath` on the Config sheet to a local full path before refreshing. Build,
-review, and macro instructions are in [`excel/README.md`](excel/README.md).
+## Documentation
 
-## Synthetic findings
+| Document | Purpose |
+|---|---|
+| [Data-flow diagram](docs/data_flow.md) | Explains movement and controls from survey/raw data to reporting |
+| [Data-quality procedure](docs/data_quality_procedure.md) | Receive, validate, triage, resolve, reconcile, and release |
+| [Update and versioning procedure](docs/update_and_versioning.md) | Defines immutable inputs, Git boundaries, updates, and rollback |
+| [Data dictionary](data/data_dictionary.csv) | Defines fields, types, valid values, and conditional requirements |
+| [Query guide](docs/query_guide.md) | Shows how to answer and document common monitoring questions |
+| [Synthetic-data design](docs/synthetic_data_design.md) | Documents seed, boundaries, injections, and qualitative phrases |
+| [Excel guide](excel/README.md) | Rebuilds and reviews Power Query, pivots, formulas, and VBA |
+| [Interview walkthrough](docs/interview_guide.md) | Provides a concise, evidence-based project explanation |
 
-These figures demonstrate reporting logic; they do not describe a real
-population or programme.
+## Design choices I can explain in an interview
 
-- 420 raw submissions and 413 consented submissions were generated.
-- 403 unique consented response IDs remain after duplicate handling.
-- 58 submissions have at least one QC flag, producing 60 record-level flags.
-- Duplicate detection produces 20 flags across ten repeated response IDs.
-- Synthetic training participation is 75.7%; mean valid satisfaction is 3.85
-  out of 5; reported skill use among participants is 64.3%.
-- All 72 non-empty synthetic comments were assigned to one of four transparent
-  themes; positive-learning comments are the largest group at 43.1%.
+- **Why immutable raw data?** It preserves the received evidence and makes every
+  downstream change traceable.
+- **Why an injected-issue truth file?** It lets tests prove that known problems
+  are detected rather than merely producing plausible-looking counts.
+- **Why separate validated and analysis datasets?** Detection and analytical
+  treatment are different decisions and should remain auditable.
+- **Why implement QC in both R and Excel?** R provides authoritative,
+  reproducible dataset-wide validation; Excel provides a familiar operational
+  interface for monitoring staff.
+- **Why keep M and VBA as text files?** Binary workbooks are difficult to
+  review in Git, so implementation sources are versioned separately.
 
-The issue counts overlap by design: for example, an invalid region or site can
-also trigger a region/site consistency rule.
+## Scope and limitations
 
-## Current data-quality scenarios
+- All people, sites, responses, comments, and apparent findings are synthetic.
+- KoboToolbox was tested in preview; no live deployment or field collection is
+  claimed.
+- The public `.xlsm` retains verified cached outputs but uses a sanitized
+  `RawDataPath` placeholder that must be configured locally before refresh.
+- Excel pivots are backed by the loaded worksheet table; no Excel Data Model or
+  slicers are claimed.
+- Synthetic qualitative comments come from a small phrase library, so the theme
+  results demonstrate workflow rather than real qualitative inference.
+- Duplicate resolution keeps the first submission ID in lexical order for the
+  demonstration. A real project would require confirmation from the data owner.
 
-The raw extract intentionally includes missing required values, duplicate
-response identifiers, invalid codes, inconsistent dates, out-of-range values,
-region/site inconsistencies, and skip-logic violations. These are test inputs,
-not mistakes that should be silently repaired in the raw layer.
+## License
 
-## Repository map
-
-- `data/raw/`: immutable synthetic generator outputs and manifest
-- `data/interim/`: disposable pipeline working files
-- `data/processed/`: tested analysis, QC, summary, and SQLite outputs
-- `R/`: small modules for import, validation, cleaning, summaries, and database output
-- `reports/`: Quarto source, rendered HTML, and generated charts
-- `sql/`: tested common monitoring queries
-- `survey/source/`: diffable survey, choice, and settings sheets
-- `survey/impact_survey_xlsform.xlsx`: generated Kobo-ready workbook
-- `excel/`: generated template, verified `.xlsm`, Power Query/VBA sources, and build guide
-- `scripts/`: generators, builders, and validators
-- `tests/`: Python and R automated tests
-- `docs/`: procedures, design decisions, diagrams, and verification evidence
-
-## Data-management documentation
-
-- [Data-flow diagram](docs/data_flow.md)
-- [Data-quality procedure](docs/data_quality_procedure.md)
-- [Dataset update and versioning procedure](docs/update_and_versioning.md)
-- [Common query guide](docs/query_guide.md)
-- [Excel workbook build guide](excel/README.md)
-- [Interview walkthrough](docs/interview_guide.md)
-- [Synthetic-data design](docs/synthetic_data_design.md)
-- [Generated QC issue log](data/processed/qc_issues_synthetic.csv)
-
-## Screenshots
-
-All screenshots below come from tested local artifacts containing synthetic
-data. Provenance is recorded in
-[`docs/screenshots/README.md`](docs/screenshots/README.md).
-
-### Excel region and round pivot — 420 imported rows
-
-![Excel region and round pivot with a grand total of 420](docs/screenshots/excel_pivot_region_round.png)
-
-### VBA QC export
-
-![Excel QC export produced by the embedded VBA macro](docs/screenshots/excel_qc_export.png)
-
-### Rendered Quarto report
-
-![Rendered synthetic monitoring report](docs/screenshots/quarto_report_overview.png)
-
-## Limitations and incomplete work
-
-- KoboToolbox upload, preview, constraints, cascading choices, and skip paths
-  were user-verified; no live deployment or real data collection is claimed.
-- The Excel workbook was assembled and exercised in Excel 16.0.20131 via COM
-  automation: the Power Query import loads 420 rows, both pivots reconcile
-  (grand total 420), a controlled refresh changed the table and pivot to 419
-  before restoring both to 420, and the VBA macro exports the expected QC
-  counts. The pivots use the loaded `SurveyTbl` table rather than an Excel Data
-  Model, and slicers are not included. See
-  [`docs/verification/excel_test_log.md`](docs/verification/excel_test_log.md).
-- The public `.xlsm` is sanitized and retains verified cached outputs. A
-  reviewer must set the Config-sheet `RawDataPath` to a local full path before
-  refreshing Power Query.
-- The qualitative comments come from a small synthetic phrase library. The
-  keyword themes demonstrate a transparent workflow, not generalisable
-  qualitative research.
-- Duplicate handling retains the first submission ID in lexical order. A real
-  project would require a documented confirmation from the data owner.
+The code and documentation are available under the [MIT License](LICENSE).
