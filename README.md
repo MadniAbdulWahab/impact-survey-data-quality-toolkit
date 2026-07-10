@@ -90,14 +90,26 @@ mock-ups. See [screenshot provenance](docs/screenshots/README.md).
 <table>
   <tr>
     <td width="50%">
-      <img src="docs/screenshots/excel_pivot_region_round.png" alt="Excel region and round pivot with a grand total of 420">
-      <br><strong>Excel monitoring pivot</strong><br>
-      Power Query import reconciled to 420 synthetic submissions.
+      <img src="docs/screenshots/excel_pivot_region_round_correct.png" alt="Excel region-by-round pivot table with a grand total of 420">
+      <br><strong>Region × round pivot table</strong><br>
+      The Power Query import reconciles to all 420 synthetic submissions.
     </td>
+    <td width="50%">
+      <img src="docs/screenshots/excel_pivot_region_chart.png" alt="Excel clustered column chart comparing response counts by region and survey round">
+      <br><strong>Region × round chart</strong><br>
+      A quick visual comparison of coverage across regions and survey rounds.
+    </td>
+  </tr>
+  <tr>
     <td width="50%">
       <img src="docs/screenshots/excel_qc_export.png" alt="Excel QC export produced by the embedded VBA macro">
       <br><strong>VBA QC export</strong><br>
       The macro refreshes workbook objects and exports rule-level QC counts.
+    </td>
+    <td width="50%">
+      <img src="docs/screenshots/excel_monitoring_summary.png" alt="Excel compact monitoring summary with key survey indicators">
+      <br><strong>Monitoring summary</strong><br>
+      Key response and data-quality indicators in one compact worksheet.
     </td>
   </tr>
 </table>
