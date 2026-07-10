@@ -5,6 +5,15 @@ The processed SQLite database is
 data. Use saved, reviewable queries and state the denominator and filters in
 every answer.
 
+Run all portfolio database checks without shell-quoting complications:
+
+```powershell
+Rscript scripts/check_database.R
+```
+
+The script prints the result tables and stops with an error if expected table,
+row, QC, region, or qualitative-theme totals do not reconcile.
+
 ## Query checklist
 
 1. Restate the question as a metric, population, period, and grouping.

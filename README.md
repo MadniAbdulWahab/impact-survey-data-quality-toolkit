@@ -62,6 +62,7 @@ Rscript -e "if (!requireNamespace('renv', quietly = TRUE)) install.packages('ren
 Rscript -e "renv::restore(prompt = FALSE)"
 Rscript scripts/run_pipeline.R
 Rscript tests/testthat.R
+Rscript scripts/check_database.R
 quarto render reports/impact_survey_report.qmd
 ```
 

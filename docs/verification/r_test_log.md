@@ -37,6 +37,17 @@ Observed result: exit code 0. Eight test blocks completed with 22 passing
 expectations across validation, duplicate handling, cleaning, qualitative
 coding, output existence, and SQLite queries.
 
+Database check command:
+
+```powershell
+Rscript scripts/check_database.R
+```
+
+Observed result: exit code 0; four expected tables, 403 analysis rows, four
+non-missing region groups totalling 400 rows, 60 QC flags, and 72 coded comments
+all reconciled. Two clean pipeline rebuilds produced the same SQLite SHA-256:
+`42e3af6be438adaca9b2951d19a6eff7360fa073064a3b13e5dcd3fe0b88d7f1`.
+
 Render command:
 
 ```powershell

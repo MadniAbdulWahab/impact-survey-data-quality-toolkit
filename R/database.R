@@ -8,6 +8,9 @@ write_monitoring_database <- function(
   path = PROJECT_PATHS$database
 ) {
   dir.create(dirname(path), recursive = TRUE, showWarnings = FALSE)
+  if (file.exists(path) && !file.remove(path)) {
+    stop("Could not replace generated SQLite database: ", path, call. = FALSE)
+  }
   connection <- DBI::dbConnect(RSQLite::SQLite(), path)
   on.exit(DBI::dbDisconnect(connection), add = TRUE)
 
@@ -27,4 +30,3 @@ write_monitoring_database <- function(
 
   invisible(path)
 }
-
