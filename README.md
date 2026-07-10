@@ -17,8 +17,8 @@ The status table is updated only after evidence-producing checks are run.
 |---|---|
 | Synthetic-data generator and survey build | **Tested:** 420 rows; 9 Python tests passed |
 | XLSForm local structural validation | **Passed:** pyxform 4.5.0 |
-| KoboToolbox preview and logic test | Not yet tested |
-| R pipeline and automated tests | **Passed:** R 4.6.1; 8 test blocks / 22 expectations |
+| KoboToolbox preview and logic test | **Passed:** user-verified preview and logic paths |
+| R pipeline and automated tests | **Passed:** R 4.6.1; 8 test blocks / 22 expectations; user rerun |
 | SQLite database and saved queries | **Tested:** four tables and common query patterns |
 | Quarto HTML report | **Rendered:** Quarto 1.9.38; four embedded charts |
 | Excel Power Query, pivots, and VBA | Not yet manually tested |

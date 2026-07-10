@@ -1,17 +1,18 @@
 # KoboToolbox verification log
 
-Status: **NOT YET TESTED**
+Status: **PASSED — USER-VERIFIED ON 10 JULY 2026**
 
 Complete this log only with results observed in your own KoboToolbox session.
 Do not enter real respondent information.
 
 ## Environment
 
-- Tester:
-- Date:
-- Kobo server/region:
-- Browser:
-- XLSForm Git commit or SHA-256:
+- Tester: Repository owner (user-reported manual verification)
+- Date: 10 July 2026
+- Kobo server/region: Not recorded
+- Browser: Not recorded
+- XLSForm SHA-256:
+  `fc928a45b1d2ca1a1fb55e664efe84fd880e84509db3bee3963849c654be9f4c`
 
 ## Test procedure
 
@@ -34,17 +35,17 @@ Do not enter real respondent information.
 
 | Check | Pass/Fail | Evidence or observation |
 |---|---|---|
-| Upload without structural error | Not tested | |
-| Synthetic warning visible | Not tested | |
-| Consent skip path | Not tested | |
-| Training skip path | Not tested | |
-| Constraints reject invalid entries | Not tested | |
-| Follow-up skip path | Not tested | |
-| Region/site filtering | Not tested | |
-| Preview completion | Not tested | |
+| Upload without structural error | Pass | User reported successful XLSForm upload and project creation. |
+| Synthetic warning visible | Pass | User reported the warning appeared in preview. |
+| Consent skip path | Pass | User reported monitoring questions remained hidden for no consent. |
+| Training skip path | Pass | User reported training questions hid and appeared as expected. |
+| Constraints reject invalid entries | Pass | User reported the score and date constraints behaved as expected. |
+| Follow-up skip path | Pass | User reported preferred channel hid and appeared as expected. |
+| Region/site filtering | Pass | User reported site choices changed with the selected region. |
+| Preview completion | Pass | User completed the synthetic preview flow successfully. |
 
 ## Issues and corrective actions
 
-Record failures here. A failed check is evidence for improvement, not something
-to hide from the portfolio history.
-
+No issue was reported during the manual Kobo preview. No deployment or live
+data collection is claimed. Browser/server details and screenshots were not
+provided, so they are intentionally not recorded or implied.

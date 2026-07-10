@@ -72,3 +72,14 @@ pass:
 
 These earlier failures are not counted as successful tests. The results above
 refer to the corrected final runs.
+
+## User-run acceptance check
+
+On 10 July 2026, the repository owner reported manually running the supplied
+Day 1 and Day 2 commands successfully. This included the synthetic-data and
+XLSForm checks, R pipeline, R tests, SQLite database checker, Quarto render, and
+visual inspection of the HTML report. The owner reported that the outputs and
+four charts appeared as expected.
+
+This entry records the user's report; no screenshot or browser evidence was
+provided, so none is claimed.
