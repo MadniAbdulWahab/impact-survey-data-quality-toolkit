@@ -1,0 +1,9 @@
+qc_rule,flagged_rows
+qc_missing_required,1
+qc_duplicate_response_id,2
+qc_invalid_code,1
+qc_date_consistency,1
+qc_out_of_range,1
+qc_region_site_consistency,2
+qc_skip_logic,1
+records_with_any_flag,8

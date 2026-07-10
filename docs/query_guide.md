@@ -96,6 +96,23 @@ GROUP BY theme
 ORDER BY comments DESC;
 ```
 
+## Answering the same questions in Excel
+
+The Excel workbook answers monitoring questions through Power Query and pivots
+instead of SQL. The `SurveyRaw` query (`excel/power_query/SurveyRaw.m`) is the
+Excel equivalent of the `survey_responses` table.
+
+- **Responses by region and round** — Pivot 1 in
+  [`../excel/README.md`](../excel/README.md): rows `region_label`, columns
+  `round_label`, values count of `submission_id`. The grand total must equal 420.
+- **Participation and satisfaction** — Pivot 2: rows `region_label`, average of
+  `satisfaction_score`, filtered to `participated_training = yes`.
+- **QC counts** — run the `RefreshAndExportQC` macro; the exported
+  `qc_report_*.csv` lists flagged rows per rule.
+
+Reconcile any Excel figure against the matching SQL result or processed CSV, and
+state the denominator and filters exactly as you would for a SQL answer.
+
 ## Response template
 
 > Using the processed synthetic dataset from commit `<hash>`, I counted

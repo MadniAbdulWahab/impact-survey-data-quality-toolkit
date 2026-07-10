@@ -38,10 +38,24 @@ Record:
 - material indicator changes;
 - reviewer and approval decision.
 
+## Excel workbook versioning
+
+- `excel/impact_survey_monitoring_template.xlsx` is **generated**; treat it like
+  code and rebuild it with `python scripts/build_excel_template.py` rather than
+  editing it by hand. It is committed so reviewers can open it directly.
+- Do all query, pivot, and macro work in the saved `excel/impact_survey_monitoring.xlsm`
+  copy. The sanitized `.xlsm` is versioned only after the checkpoint in
+  `docs/verification/excel_test_log.md` passes; never replace it with an
+  unverified working copy.
+- On a data update, set `RawDataPath`, **Data ▸ Refresh All**, confirm the row
+  count still equals `ExpectedRowCount`, and reconcile the pivot totals against
+  `data/processed/region_round_summary_synthetic.csv` before recording the run.
+- Macro exports under `excel/exports/` are disposable working files. Promote
+  only a reviewed example to `excel/examples/` as versioned evidence.
+
 ## Rollback
 
 Because raw files are immutable and transformations are in Git, restore the
 previous release by checking out its tag or commit and rerunning the pipeline.
 Do not use a rollback to conceal a failed quality check; retain the failed run's
 issue note in project history.
-
