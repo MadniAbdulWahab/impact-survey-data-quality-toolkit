@@ -2,12 +2,13 @@
 
 # Impact Survey Data Quality & Reporting Toolkit
 
-### Survey data quality from collection to reporting
+### Reproducible data quality from collection to reporting
 
-I built this toolkit around a fictional community training follow-up survey. It
-starts with the XLSForm, follows the data through quality checks and analysis,
-and finishes with an R report, a queryable database, and an Excel monitoring
-workbook.
+I used a fictional, multi-region training follow-up survey as the working
+dataset. The toolkit covers collection design, quality control, reproducible
+analysis, database querying, Excel automation, and reporting. Its checks and
+layered data structure can be adapted to other survey, research,
+administrative, and operational datasets.
 
 [![Data](https://img.shields.io/badge/data-synthetic%20only-2F6B4F)](docs/synthetic_data_design.md)
 [![Python](https://img.shields.io/badge/Python-3.11-3776AB?logo=python&logoColor=white)](requirements.txt)
@@ -32,12 +33,13 @@ workbook.
 |---:|---:|---:|---:|
 | Fixed-seed generation | Missing, duplicate, code, date, range, consistency, skip logic | Affecting 58 submissions | Kobo/XLSForm, Python, R/SQLite/Quarto, Excel |
 
-This project brings together practical skills across the survey-data lifecycle:
+Using survey data as the example, this project brings together practical skills
+across the wider data lifecycle:
 
 - designing and testing a survey instrument;
 - maintaining clear raw, interim, and processed data layers;
 - detecting and documenting realistic data-quality problems;
-- cleaning, analysing, querying, and reporting survey data in R and SQL;
+- cleaning, analysing, querying, and reporting data in R and SQL;
 - building operational Excel tools with Power Query, formulas, pivots, and VBA;
 - writing procedures that make updates, decisions, and limitations auditable.
 
@@ -46,7 +48,7 @@ This project brings together practical skills across the survey-data lifecycle:
 | Component | Achievement | Evidence |
 |---|---|---|
 | **Survey collection** | Kobo-ready XLSForm with constraints, skip logic, cascading region/site choices, consent path, and qualitative questions | [XLSForm](survey/impact_survey_xlsform.xlsx) · [Git-friendly source sheets](survey/source/) · [Kobo verification](docs/verification/kobo_test_log.md) |
-| **Synthetic monitoring data** | 420 deterministic responses generated with seed `20260710`, including a machine-readable injected-issue truth file | [Generator](scripts/generate_synthetic_data.py) · [Manifest](data/raw/generation_manifest.json) · [Data dictionary](data/data_dictionary.csv) |
+| **Synthetic survey data** | 420 deterministic responses generated with seed `20260710`, including a machine-readable injected-issue truth file | [Generator](scripts/generate_synthetic_data.py) · [Manifest](data/raw/generation_manifest.json) · [Data dictionary](data/data_dictionary.csv) |
 | **R quality pipeline** | Character-first import, explicit typing, seven validation rules, cleaning audit, descriptive statistics, cross-tabulations, and qualitative theme coding | [R modules](R/) · [Pipeline](scripts/run_pipeline.R) · [R verification](docs/verification/r_test_log.md) |
 | **Database and queries** | SQLite database with four tables, indexes, saved SQL, and a PowerShell-safe reconciliation script | [Database](data/processed/impact_survey_synthetic.sqlite) · [SQL](sql/common_queries.sql) · [Query guide](docs/query_guide.md) |
 | **Automated reporting** | Self-contained Quarto HTML report with dynamic narrative, tables, limitations, and four charts | [Rendered report](reports/impact_survey_report.html) · [Quarto source](reports/impact_survey_report.qmd) |
@@ -73,7 +75,7 @@ flowchart LR
 
     E --> M[Excel Power Query]
     M --> N[420-row SurveyTbl]
-    N --> O[Pivots and monitoring views]
+    N --> O[Pivots and summary views]
     O --> P[VBA QC export]
 ```
 
@@ -115,7 +117,7 @@ mock-ups. See [screenshot provenance](docs/screenshots/README.md).
 
 ### Automated HTML report
 
-![Rendered Quarto monitoring report showing QC results and a bar chart](docs/screenshots/quarto_report_overview.png)
+![Rendered Quarto data-quality report showing QC results and a bar chart](docs/screenshots/quarto_report_overview.png)
 
 ## Data-quality rules
 
@@ -235,7 +237,7 @@ excel/
   impact_survey_monitoring.xlsm
 R/                 import, validation, cleaning, summary, database modules
 reports/           Quarto source, self-contained HTML, figures
-sql/               saved monitoring queries
+sql/               saved analysis and quality-control queries
 scripts/           reproducible entry points and artifact builders
 tests/             Python and R validation tests
 docs/              procedures, diagrams, verification logs, screenshots
@@ -249,7 +251,7 @@ docs/              procedures, diagrams, verification logs, screenshots
 | [Data-quality procedure](docs/data_quality_procedure.md) | Receive, validate, triage, resolve, reconcile, and release |
 | [Update and versioning procedure](docs/update_and_versioning.md) | Defines immutable inputs, Git boundaries, updates, and rollback |
 | [Data dictionary](data/data_dictionary.csv) | Defines fields, types, valid values, and conditional requirements |
-| [Query guide](docs/query_guide.md) | Shows how to answer and document common monitoring questions |
+| [Query guide](docs/query_guide.md) | Shows how to answer and document common data queries |
 | [Synthetic-data design](docs/synthetic_data_design.md) | Documents seed, boundaries, injections, and qualitative phrases |
 | [Excel guide](excel/README.md) | Rebuilds and reviews Power Query, pivots, formulas, and VBA |
 
@@ -262,7 +264,8 @@ docs/              procedures, diagrams, verification logs, screenshots
 - **Separate validated and analysis datasets:** detecting a problem and deciding
   how to treat it analytically are different decisions, so I keep both visible.
 - **QC in both R and Excel:** R provides reproducible, dataset-wide validation;
-  Excel provides a familiar operational interface for monitoring staff.
+  Excel provides an accessible interface for spreadsheet-based review and
+  follow-up.
 - **M and VBA stored as text:** binary workbooks are difficult to review in Git,
   so I version the implementation sources separately.
 
