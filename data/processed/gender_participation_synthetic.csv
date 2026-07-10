@@ -1,0 +1,9 @@
+gender,participated_training,responses,percent_within_gender
+man,no,46,25.1
+man,yes,137,74.9
+non_binary,no,2,20
+non_binary,yes,8,80
+prefer_not,no,1,16.7
+prefer_not,yes,5,83.3
+woman,no,49,24.4
+woman,yes,152,75.6

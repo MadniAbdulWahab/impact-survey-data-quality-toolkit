@@ -1,0 +1,8 @@
+root <- Sys.getenv("IMPACT_PROJECT_ROOT")
+source(file.path(root, "R", "config.R"))
+source(file.path(root, "R", "import.R"))
+source(file.path(root, "R", "validate.R"))
+source(file.path(root, "R", "clean.R"))
+source(file.path(root, "R", "qualitative.R"))
+source(file.path(root, "R", "summarise.R"))
+source(file.path(root, "R", "database.R"))

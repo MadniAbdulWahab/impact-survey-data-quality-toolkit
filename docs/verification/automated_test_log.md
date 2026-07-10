@@ -48,3 +48,15 @@ The byte-reproducibility test generated the dataset twice in separate temporary
 directories and compared the resulting CSV bytes. It passed. These injection
 counts are not yet R detection results; R validation remains untested.
 
+## 10 July 2026 — Day 2 regression check
+
+The XLSForm builder was updated to normalize Excel archive metadata and to build
+test workbooks outside the repository. Two consecutive builds produced the same
+SHA-256:
+
+```text
+fc928a45b1d2ca1a1fb55e664efe84fd880e84509db3bee3963849c654be9f4c
+```
+
+The expanded Python suite then passed all nine tests, and pyxform 4.5.0 again
+completed structural validation with no reported warnings.

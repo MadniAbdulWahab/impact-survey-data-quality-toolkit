@@ -1,0 +1,9 @@
+.venv/
+data/
+docs/
+excel/
+survey/
+reports/figures/
+tests/python/
+scripts/*.py
+

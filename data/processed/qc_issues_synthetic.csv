@@ -1,0 +1,61 @@
+submission_id,response_id,region_code,survey_round,issue_type,issue_label,status,review_note
+SUB-0304,SYN-0304,,ROUND_2,missing_required,Missing required value,Open,Synthetic issue detected by an automated rule
+SUB-DUP-006,SYN-0305,WEST,ROUND_1,duplicate_response_id,Duplicate response identifier,Open,Synthetic issue detected by an automated rule
+SUB-0183,SYN-0183,SOUTH,ROUND_1,date_consistency,Date inconsistency,Open,Synthetic issue detected by an automated rule
+SUB-0317,SYN-0317,EAST,ROUND_1,out_of_range,Value outside allowed range,Open,Synthetic issue detected by an automated rule
+SUB-0178,SYN-0178,WEST,ROUND_1,skip_logic,Skip-logic violation,Open,Synthetic issue detected by an automated rule
+SUB-0135,SYN-0135,WEST,ROUND_2,skip_logic,Skip-logic violation,Open,Synthetic issue detected by an automated rule
+SUB-0073,SYN-0073,EAST,ROUND_1,date_consistency,Date inconsistency,Open,Synthetic issue detected by an automated rule
+SUB-0144,SYN-0144,WEST,ROUND_2,missing_required,Missing required value,Open,Synthetic issue detected by an automated rule
+SUB-0289,SYN-0289,SOUTH,ROUND_1,missing_required,Missing required value,Open,Synthetic issue detected by an automated rule
+SUB-0381,SYN-0381,SOUTH,ROUND_2,duplicate_response_id,Duplicate response identifier,Open,Synthetic issue detected by an automated rule
+SUB-0305,SYN-0305,WEST,ROUND_1,duplicate_response_id,Duplicate response identifier,Open,Synthetic issue detected by an automated rule
+SUB-0298,SYN-0298,NORTH,ROUND_2,missing_required,Missing required value,Open,Synthetic issue detected by an automated rule
+SUB-0192,SYN-0192,CENTRAL,ROUND_2,invalid_code,Invalid code,Open,Synthetic issue detected by an automated rule
+SUB-0192,SYN-0192,CENTRAL,ROUND_2,region_site_consistency,Region/site inconsistency,Open,Synthetic issue detected by an automated rule
+SUB-0239,SYN-0239,EAST,ROUND_1,duplicate_response_id,Duplicate response identifier,Open,Synthetic issue detected by an automated rule
+SUB-0233,SYN-0233,NORTH,ROUND_2,date_consistency,Date inconsistency,Open,Synthetic issue detected by an automated rule
+SUB-0128,SYN-0128,,ROUND_2,missing_required,Missing required value,Open,Synthetic issue detected by an automated rule
+SUB-0066,SYN-0066,NORTH,ROUND_1,duplicate_response_id,Duplicate response identifier,Open,Synthetic issue detected by an automated rule
+SUB-DUP-009,SYN-0398,SOUTH,ROUND_2,duplicate_response_id,Duplicate response identifier,Open,Synthetic issue detected by an automated rule
+SUB-DUP-003,SYN-0246,SOUTH,ROUND_2,duplicate_response_id,Duplicate response identifier,Open,Synthetic issue detected by an automated rule
+SUB-DUP-004,SYN-0056,SOUTH,ROUND_2,duplicate_response_id,Duplicate response identifier,Open,Synthetic issue detected by an automated rule
+SUB-DUP-007,SYN-0395,EAST,ROUND_2,duplicate_response_id,Duplicate response identifier,Open,Synthetic issue detected by an automated rule
+SUB-0369,SYN-0369,EAST,ROUND_2,date_consistency,Date inconsistency,Open,Synthetic issue detected by an automated rule
+SUB-0329,SYN-0329,NORTH,ROUND_1,out_of_range,Value outside allowed range,Open,Synthetic issue detected by an automated rule
+SUB-0069,SYN-0069,EAST,ROUND_1,invalid_code,Invalid code,Open,Synthetic issue detected by an automated rule
+SUB-0171,SYN-0171,NORTH,ROUND_1,skip_logic,Skip-logic violation,Open,Synthetic issue detected by an automated rule
+SUB-0410,SYN-0410,EAST,ROUND_2,region_site_consistency,Region/site inconsistency,Open,Synthetic issue detected by an automated rule
+SUB-0216,SYN-0216,EAST,ROUND_1,region_site_consistency,Region/site inconsistency,Open,Synthetic issue detected by an automated rule
+SUB-0140,SYN-0140,SOUTH,ROUND_2,invalid_code,Invalid code,Open,Synthetic issue detected by an automated rule
+SUB-0215,SYN-0215,SOUTH,ROUND_1,out_of_range,Value outside allowed range,Open,Synthetic issue detected by an automated rule
+SUB-0197,SYN-0197,SOUTH,ROUND_2,region_site_consistency,Region/site inconsistency,Open,Synthetic issue detected by an automated rule
+SUB-0309,SYN-0309,EAST,ROUND_1,out_of_range,Value outside allowed range,Open,Synthetic issue detected by an automated rule
+SUB-0033,SYN-0033,WEST,ROUND_2,skip_logic,Skip-logic violation,Open,Synthetic issue detected by an automated rule
+SUB-0341,SYN-0341,NORTH,ROUND_2,out_of_range,Value outside allowed range,Open,Synthetic issue detected by an automated rule
+SUB-0358,SYN-0358,SOUTH,ROUND_2,missing_required,Missing required value,Open,Synthetic issue detected by an automated rule
+SUB-DUP-008,SYN-0296,EAST,ROUND_2,duplicate_response_id,Duplicate response identifier,Open,Synthetic issue detected by an automated rule
+SUB-DUP-005,SYN-0206,EAST,ROUND_2,duplicate_response_id,Duplicate response identifier,Open,Synthetic issue detected by an automated rule
+SUB-0146,SYN-0146,EAST,ROUND_2,invalid_code,Invalid code,Open,Synthetic issue detected by an automated rule
+SUB-0388,SYN-0388,NORTH,ROUND_2,invalid_code,Invalid code,Open,Synthetic issue detected by an automated rule
+SUB-0388,SYN-0388,NORTH,ROUND_2,region_site_consistency,Region/site inconsistency,Open,Synthetic issue detected by an automated rule
+SUB-0340,SYN-0340,WEST,ROUND_2,skip_logic,Skip-logic violation,Open,Synthetic issue detected by an automated rule
+SUB-DUP-010,SYN-0381,SOUTH,ROUND_2,duplicate_response_id,Duplicate response identifier,Open,Synthetic issue detected by an automated rule
+SUB-0246,SYN-0246,SOUTH,ROUND_2,duplicate_response_id,Duplicate response identifier,Open,Synthetic issue detected by an automated rule
+SUB-0009,SYN-0009,SOUTH,ROUND_1,date_consistency,Date inconsistency,Open,Synthetic issue detected by an automated rule
+SUB-0245,SYN-0245,NORTH,ROUND_1,skip_logic,Skip-logic violation,Open,Synthetic issue detected by an automated rule
+SUB-0353,SYN-0353,NORTH,ROUND_2,region_site_consistency,Region/site inconsistency,Open,Synthetic issue detected by an automated rule
+SUB-0398,SYN-0398,SOUTH,ROUND_2,duplicate_response_id,Duplicate response identifier,Open,Synthetic issue detected by an automated rule
+SUB-0311,SYN-0311,NORTH,ROUND_2,missing_required,Missing required value,Open,Synthetic issue detected by an automated rule
+SUB-DUP-001,SYN-0239,EAST,ROUND_1,duplicate_response_id,Duplicate response identifier,Open,Synthetic issue detected by an automated rule
+SUB-0296,SYN-0296,EAST,ROUND_2,duplicate_response_id,Duplicate response identifier,Open,Synthetic issue detected by an automated rule
+SUB-DUP-002,SYN-0066,NORTH,ROUND_1,duplicate_response_id,Duplicate response identifier,Open,Synthetic issue detected by an automated rule
+SUB-0288,SYN-0288,EAST,ROUND_1,skip_logic,Skip-logic violation,Open,Synthetic issue detected by an automated rule
+SUB-0268,SYN-0268,SOUTH,ROUND_2,invalid_code,Invalid code,Open,Synthetic issue detected by an automated rule
+SUB-0395,SYN-0395,EAST,ROUND_2,duplicate_response_id,Duplicate response identifier,Open,Synthetic issue detected by an automated rule
+SUB-0001,SYN-0001,WEST,ROUND_2,out_of_range,Value outside allowed range,Open,Synthetic issue detected by an automated rule
+SUB-0056,SYN-0056,SOUTH,ROUND_2,duplicate_response_id,Duplicate response identifier,Open,Synthetic issue detected by an automated rule
+SUB-0119,SYN-0119,EAST,ROUND_2,skip_logic,Skip-logic violation,Open,Synthetic issue detected by an automated rule
+SUB-0206,SYN-0206,EAST,ROUND_2,duplicate_response_id,Duplicate response identifier,Open,Synthetic issue detected by an automated rule
+SUB-0116,SYN-0116,NORTH,ROUND_1,missing_required,Missing required value,Open,Synthetic issue detected by an automated rule
+SUB-0169,SYN-0169,SOUTH,ROUND_1,date_consistency,Date inconsistency,Open,Synthetic issue detected by an automated rule

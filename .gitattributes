@@ -6,4 +6,4 @@
 *.jpg binary
 *.jpeg binary
 *.pdf binary
-
+*.sqlite binary

@@ -1,0 +1,8 @@
+issue_type,issue_label,flag_count,affected_response_ids
+duplicate_response_id,Duplicate response identifier,20,10
+missing_required,Missing required value,8,8
+skip_logic,Skip-logic violation,8,8
+date_consistency,Date inconsistency,6,6
+invalid_code,Invalid code,6,6
+out_of_range,Value outside allowed range,6,6
+region_site_consistency,Region/site inconsistency,6,6

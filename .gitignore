@@ -13,6 +13,7 @@ renv/staging/
 
 # Quarto
 /.quarto/
+/.quarto-local/
 *_files/
 /.cache/
 
@@ -30,3 +31,5 @@ data/interim/*
 Thumbs.db
 .vscode/
 
+
+**/*.quarto_ipynb

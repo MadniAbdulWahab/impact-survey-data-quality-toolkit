@@ -1,0 +1,10 @@
+metric,value,display_type
+Raw submissions,420,count
+Consented submissions,413,count
+Unique consented responses used for analysis,403,count
+Responses with one or more QC flags,58,count
+Total record-level QC flags,60,count
+Training participation rate,0.7568238213399504,proportion
+Mean satisfaction among valid training responses,3.848684210526316,mean
+Skill-use rate among training participants,0.6426229508196721,proportion
+Synthetic comments coded,72,count

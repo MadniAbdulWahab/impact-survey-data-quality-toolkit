@@ -1,0 +1,61 @@
+submission_id,response_id,issue_type,issue_label,action
+SUB-0304,SYN-0304,missing_required,Missing required value,Retain flag; exclude missing value from its denominator
+SUB-DUP-006,SYN-0305,duplicate_response_id,Duplicate response identifier,Keep the first submission by identifier; exclude later copy from analysis
+SUB-0183,SYN-0183,date_consistency,Date inconsistency,Retain flag; exclude inconsistent date from date-specific interpretation
+SUB-0317,SYN-0317,out_of_range,Value outside allowed range,Set out-of-range numeric value to missing in the analysis copy
+SUB-0178,SYN-0178,skip_logic,Skip-logic violation,Retain raw values and exclude inapplicable answer from interpretation
+SUB-0135,SYN-0135,skip_logic,Skip-logic violation,Retain raw values and exclude inapplicable answer from interpretation
+SUB-0073,SYN-0073,date_consistency,Date inconsistency,Retain flag; exclude inconsistent date from date-specific interpretation
+SUB-0144,SYN-0144,missing_required,Missing required value,Retain flag; exclude missing value from its denominator
+SUB-0289,SYN-0289,missing_required,Missing required value,Retain flag; exclude missing value from its denominator
+SUB-0381,SYN-0381,duplicate_response_id,Duplicate response identifier,Keep the first submission by identifier; exclude later copy from analysis
+SUB-0305,SYN-0305,duplicate_response_id,Duplicate response identifier,Keep the first submission by identifier; exclude later copy from analysis
+SUB-0298,SYN-0298,missing_required,Missing required value,Retain flag; exclude missing value from its denominator
+SUB-0192,SYN-0192,invalid_code,Invalid code,Set invalid coded value to missing in the analysis copy
+SUB-0192,SYN-0192,region_site_consistency,Region/site inconsistency,Retain both raw codes and flag for source review
+SUB-0239,SYN-0239,duplicate_response_id,Duplicate response identifier,Keep the first submission by identifier; exclude later copy from analysis
+SUB-0233,SYN-0233,date_consistency,Date inconsistency,Retain flag; exclude inconsistent date from date-specific interpretation
+SUB-0128,SYN-0128,missing_required,Missing required value,Retain flag; exclude missing value from its denominator
+SUB-0066,SYN-0066,duplicate_response_id,Duplicate response identifier,Keep the first submission by identifier; exclude later copy from analysis
+SUB-DUP-009,SYN-0398,duplicate_response_id,Duplicate response identifier,Keep the first submission by identifier; exclude later copy from analysis
+SUB-DUP-003,SYN-0246,duplicate_response_id,Duplicate response identifier,Keep the first submission by identifier; exclude later copy from analysis
+SUB-DUP-004,SYN-0056,duplicate_response_id,Duplicate response identifier,Keep the first submission by identifier; exclude later copy from analysis
+SUB-DUP-007,SYN-0395,duplicate_response_id,Duplicate response identifier,Keep the first submission by identifier; exclude later copy from analysis
+SUB-0369,SYN-0369,date_consistency,Date inconsistency,Retain flag; exclude inconsistent date from date-specific interpretation
+SUB-0329,SYN-0329,out_of_range,Value outside allowed range,Set out-of-range numeric value to missing in the analysis copy
+SUB-0069,SYN-0069,invalid_code,Invalid code,Set invalid coded value to missing in the analysis copy
+SUB-0171,SYN-0171,skip_logic,Skip-logic violation,Retain raw values and exclude inapplicable answer from interpretation
+SUB-0410,SYN-0410,region_site_consistency,Region/site inconsistency,Retain both raw codes and flag for source review
+SUB-0216,SYN-0216,region_site_consistency,Region/site inconsistency,Retain both raw codes and flag for source review
+SUB-0140,SYN-0140,invalid_code,Invalid code,Set invalid coded value to missing in the analysis copy
+SUB-0215,SYN-0215,out_of_range,Value outside allowed range,Set out-of-range numeric value to missing in the analysis copy
+SUB-0197,SYN-0197,region_site_consistency,Region/site inconsistency,Retain both raw codes and flag for source review
+SUB-0309,SYN-0309,out_of_range,Value outside allowed range,Set out-of-range numeric value to missing in the analysis copy
+SUB-0033,SYN-0033,skip_logic,Skip-logic violation,Retain raw values and exclude inapplicable answer from interpretation
+SUB-0341,SYN-0341,out_of_range,Value outside allowed range,Set out-of-range numeric value to missing in the analysis copy
+SUB-0358,SYN-0358,missing_required,Missing required value,Retain flag; exclude missing value from its denominator
+SUB-DUP-008,SYN-0296,duplicate_response_id,Duplicate response identifier,Keep the first submission by identifier; exclude later copy from analysis
+SUB-DUP-005,SYN-0206,duplicate_response_id,Duplicate response identifier,Keep the first submission by identifier; exclude later copy from analysis
+SUB-0146,SYN-0146,invalid_code,Invalid code,Set invalid coded value to missing in the analysis copy
+SUB-0388,SYN-0388,invalid_code,Invalid code,Set invalid coded value to missing in the analysis copy
+SUB-0388,SYN-0388,region_site_consistency,Region/site inconsistency,Retain both raw codes and flag for source review
+SUB-0340,SYN-0340,skip_logic,Skip-logic violation,Retain raw values and exclude inapplicable answer from interpretation
+SUB-DUP-010,SYN-0381,duplicate_response_id,Duplicate response identifier,Keep the first submission by identifier; exclude later copy from analysis
+SUB-0246,SYN-0246,duplicate_response_id,Duplicate response identifier,Keep the first submission by identifier; exclude later copy from analysis
+SUB-0009,SYN-0009,date_consistency,Date inconsistency,Retain flag; exclude inconsistent date from date-specific interpretation
+SUB-0245,SYN-0245,skip_logic,Skip-logic violation,Retain raw values and exclude inapplicable answer from interpretation
+SUB-0353,SYN-0353,region_site_consistency,Region/site inconsistency,Retain both raw codes and flag for source review
+SUB-0398,SYN-0398,duplicate_response_id,Duplicate response identifier,Keep the first submission by identifier; exclude later copy from analysis
+SUB-0311,SYN-0311,missing_required,Missing required value,Retain flag; exclude missing value from its denominator
+SUB-DUP-001,SYN-0239,duplicate_response_id,Duplicate response identifier,Keep the first submission by identifier; exclude later copy from analysis
+SUB-0296,SYN-0296,duplicate_response_id,Duplicate response identifier,Keep the first submission by identifier; exclude later copy from analysis
+SUB-DUP-002,SYN-0066,duplicate_response_id,Duplicate response identifier,Keep the first submission by identifier; exclude later copy from analysis
+SUB-0288,SYN-0288,skip_logic,Skip-logic violation,Retain raw values and exclude inapplicable answer from interpretation
+SUB-0268,SYN-0268,invalid_code,Invalid code,Set invalid coded value to missing in the analysis copy
+SUB-0395,SYN-0395,duplicate_response_id,Duplicate response identifier,Keep the first submission by identifier; exclude later copy from analysis
+SUB-0001,SYN-0001,out_of_range,Value outside allowed range,Set out-of-range numeric value to missing in the analysis copy
+SUB-0056,SYN-0056,duplicate_response_id,Duplicate response identifier,Keep the first submission by identifier; exclude later copy from analysis
+SUB-0119,SYN-0119,skip_logic,Skip-logic violation,Retain raw values and exclude inapplicable answer from interpretation
+SUB-0206,SYN-0206,duplicate_response_id,Duplicate response identifier,Keep the first submission by identifier; exclude later copy from analysis
+SUB-0116,SYN-0116,missing_required,Missing required value,Retain flag; exclude missing value from its denominator
+SUB-0169,SYN-0169,date_consistency,Date inconsistency,Retain flag; exclude inconsistent date from date-specific interpretation

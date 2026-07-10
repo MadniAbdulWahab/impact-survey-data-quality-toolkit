@@ -16,8 +16,8 @@ def sheet_records(sheet):
     return [dict(zip(headers, row)) for row in rows[1:]]
 
 
-def test_xlsform_has_required_sheets_and_headers():
-    path = build()
+def test_xlsform_has_required_sheets_and_headers(tmp_path):
+    path = build(tmp_path / "form.xlsx", tmp_path / "source")
     workbook = load_workbook(path, data_only=False)
     assert {"survey", "choices", "settings"}.issubset(workbook.sheetnames)
     assert {"type", "name", "label"}.issubset(
@@ -29,6 +29,12 @@ def test_xlsform_has_required_sheets_and_headers():
     assert {"form_title", "form_id", "version"}.issubset(
         {cell.value for cell in workbook["settings"][1]}
     )
+
+
+def test_xlsform_build_is_byte_reproducible(tmp_path):
+    first = build(tmp_path / "first.xlsx", tmp_path / "first_source")
+    second = build(tmp_path / "second.xlsx", tmp_path / "second_source")
+    assert first.read_bytes() == second.read_bytes()
 
 
 def test_select_lists_exist_and_groups_are_balanced():
@@ -70,4 +76,3 @@ def test_site_choices_use_region_filter():
     site_question = next(row for row in survey if row["name"] == "site_code")
     assert site_question["choice_filter"] == "region_code=${region_code}"
     assert all(row["region_code"] for row in choices if row["list_name"] == "site")
-

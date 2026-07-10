@@ -3,6 +3,8 @@
 from __future__ import annotations
 
 import csv
+import re
+import zipfile
 from pathlib import Path
 
 from openpyxl import Workbook
@@ -137,19 +139,56 @@ def add_sheet(workbook: Workbook, title: str, headers: list[str], rows: list[lis
         sheet.column_dimensions[get_column_letter(index)].width = width
 
 
-def build() -> Path:
-    write_csv(SOURCE_DIR / "survey.csv", SURVEY_HEADERS, SURVEY_ROWS)
-    write_csv(SOURCE_DIR / "choices.csv", CHOICE_HEADERS, CHOICE_ROWS)
-    write_csv(SOURCE_DIR / "settings.csv", SETTINGS_HEADERS, SETTINGS_ROWS)
+def normalize_xlsx_archive(path: Path) -> None:
+    """Remove changing ZIP timestamps while preserving workbook content."""
+    fixed_time = (1980, 1, 1, 0, 0, 0)
+    members: list[tuple[str, int, int, bytes]] = []
+    with zipfile.ZipFile(path, "r") as source:
+        for name in sorted(source.namelist()):
+            original = source.getinfo(name)
+            content = source.read(name)
+            if name == "docProps/core.xml":
+                content = re.sub(
+                    rb"(<dcterms:(created|modified)[^>]*>).*?(</dcterms:\2>)",
+                    lambda match: (
+                        match.group(1)
+                        + b"2025-01-01T00:00:00Z"
+                        + match.group(3)
+                    ),
+                    content,
+                )
+            members.append(
+                (name, original.create_system, original.external_attr, content)
+            )
+
+    with zipfile.ZipFile(
+        path, "w", compression=zipfile.ZIP_DEFLATED, compresslevel=9
+    ) as target:
+        for name, create_system, external_attr, content in members:
+            info = zipfile.ZipInfo(name, date_time=fixed_time)
+            info.compress_type = zipfile.ZIP_DEFLATED
+            info.create_system = create_system
+            info.external_attr = external_attr
+            target.writestr(info, content)
+
+
+def build(
+    output_path: Path = OUTPUT_PATH,
+    source_dir: Path = SOURCE_DIR,
+) -> Path:
+    write_csv(source_dir / "survey.csv", SURVEY_HEADERS, SURVEY_ROWS)
+    write_csv(source_dir / "choices.csv", CHOICE_HEADERS, CHOICE_ROWS)
+    write_csv(source_dir / "settings.csv", SETTINGS_HEADERS, SETTINGS_ROWS)
 
     workbook = Workbook()
     workbook.remove(workbook.active)
     add_sheet(workbook, "survey", SURVEY_HEADERS, SURVEY_ROWS)
     add_sheet(workbook, "choices", CHOICE_HEADERS, CHOICE_ROWS)
     add_sheet(workbook, "settings", SETTINGS_HEADERS, SETTINGS_ROWS)
-    OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
-    workbook.save(OUTPUT_PATH)
-    return OUTPUT_PATH
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    workbook.save(output_path)
+    normalize_xlsx_archive(output_path)
+    return output_path
 
 
 if __name__ == "__main__":

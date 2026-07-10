@@ -1,0 +1,11 @@
+{
+  "synthetic_data_notice": "SYNTHETIC DATA - NOT REAL PEOPLE OR PROGRAMME OPERATIONS",
+  "fixed_reference_date": "2025-10-01",
+  "raw_rows": 420,
+  "validated_rows": 420,
+  "analysis_rows": 403,
+  "responses_with_qc_flags": 58,
+  "record_level_qc_flags": 60,
+  "coded_comments": 72,
+  "output_database": "data/processed/impact_survey_synthetic.sqlite"
+}
