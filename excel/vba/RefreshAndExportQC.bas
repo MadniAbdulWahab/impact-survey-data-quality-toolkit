@@ -1,7 +1,7 @@
 Attribute VB_Name = "modQCExport"
 ' RefreshAndExportQC - refresh every query and pivot, then export a QC summary.
 '
-' Portfolio artefact using synthetic data only. Import this module with
+' Synthetic data only. Import this module with
 ' Alt+F11 > File > Import File, then save the workbook as .xlsm and run
 ' RefreshAndExportQC (Alt+F8). The macro:
 '   1. refreshes all Power Query connections and waits for them to finish;

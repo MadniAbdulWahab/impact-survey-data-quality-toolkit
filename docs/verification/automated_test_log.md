@@ -61,3 +61,16 @@ fc928a45b1d2ca1a1fb55e664efe84fd880e84509db3bee3963849c654be9f4c
 
 The expanded Python suite then passed all nine tests, and pyxform 4.5.0 again
 completed structural validation with no reported warnings.
+
+## 11 July 2026 — Publication regression check
+
+The XLSForm and Excel template were rebuilt after a wording review. The final
+Python suite passed all 18 tests, and pyxform structural validation completed
+without warnings. The current XLSForm SHA-256 is:
+
+```text
+71d8bb48d584a7ba369ca559d627f3a48548bd83432e1bb784a7859fe71d8782
+```
+
+The same XLSForm was then rechecked in KoboToolbox Preview; results are recorded
+in `kobo_test_log.md`.

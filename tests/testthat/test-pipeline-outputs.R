@@ -15,7 +15,7 @@ test_that("pipeline writes the required processed outputs", {
   expect_true(all(file.exists(file.path(PROJECT_PATHS$processed_dir, expected))))
 })
 
-test_that("SQLite output contains queryable portfolio tables", {
+test_that("SQLite output contains the expected queryable tables", {
   expect_true(file.exists(PROJECT_PATHS$database))
   connection <- DBI::dbConnect(RSQLite::SQLite(), PROJECT_PATHS$database)
   on.exit(DBI::dbDisconnect(connection), add = TRUE)
@@ -53,4 +53,3 @@ test_that("SQLite output contains queryable portfolio tables", {
   expect_equal(nrow(issue_query), 7)
   expect_equal(nrow(theme_query), 4)
 })
-

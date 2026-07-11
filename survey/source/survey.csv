@@ -1,11 +1,11 @@
 type,name,label,hint,required,relevant,constraint,constraint_message,calculation,appearance,choice_filter
-note,synthetic_notice,SYNTHETIC DATA - NOT REAL PEOPLE OR PROGRAMME OPERATIONS,Portfolio demonstration only,,,,,,,
+note,synthetic_notice,SYNTHETIC DATA - NOT REAL PEOPLE OR PROGRAMME OPERATIONS,Synthetic dataset only; do not enter real personal information,,,,,,,
 start,start,,,,,,,,,
 end,end,,,,,,,,,
 deviceid,deviceid,,,,,,,,,
 calculate,synthetic_data,,,,,,,'yes',,
 calculate,survey_version,,,,,,,'1.0.0',,
-select_one yes_no,consent,Do you agree to continue with this fictional practice survey?,Do not enter any real personal information.,yes,,,,,,
+select_one yes_no,consent,Do you agree to continue with this synthetic survey?,Do not enter any real personal information.,yes,,,,,,
 note,no_consent_note,Thank you. The survey ends here.,,,${consent} = 'no',,,,,
 begin_group,monitoring,Monitoring questions,,,${consent} = 'yes',,,,field-list,
 select_one survey_round,survey_round,Survey round,,yes,,,,,,

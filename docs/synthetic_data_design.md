@@ -3,8 +3,9 @@
 ## Purpose and boundaries
 
 The dataset is a fictional community-services and training follow-up survey
-created solely to demonstrate monitoring-data practices. It is not based on a
-real organisation, population, respondent, site, or programme.
+created to exercise collection, validation, analysis, and reporting workflows.
+It is not based on a real organisation, population, respondent, site, or
+programme.
 
 The form intentionally avoids direct identifiers: it has no name, phone,
 email, address, GPS coordinate, exact birth date, or free-text contact field.
@@ -42,6 +43,5 @@ not equal the number of unique affected records.
 
 Optional comments are selected from a small, documented synthetic phrase
 library covering positive feedback, timing, access, and requests for more
-content. These comments are suitable for demonstrating transparent theme
-coding, not statistical inference or natural-language model performance.
-
+content. They support transparent theme-coding checks, not statistical
+inference or comprehensive qualitative analysis.

@@ -2,10 +2,9 @@
 
 ## Purpose
 
-This procedure describes how a monitoring-data assistant would receive,
-validate, review, correct, and publish a survey extract. The portfolio data is
-synthetic, but the controls are designed to be transferable to a small real
-project.
+This procedure covers receipt, validation, review, correction, and publication
+of a survey extract. The dataset is synthetic; the controls are structured so
+they can be adapted to other small data workflows.
 
 ## Principles
 
@@ -15,8 +14,8 @@ project.
 3. Keep automated detection separate from human resolution.
 4. Record the rule, affected record, decision, and action.
 5. Reconcile row counts and key indicators after every update.
-6. Treat free text as potentially sensitive in a real project even though this
-   portfolio contains only synthetic phrases.
+6. Treat free text as potentially sensitive in a live project. This dataset
+   contains synthetic phrases only.
 
 ## Workflow
 
@@ -38,7 +37,7 @@ Rscript tests/testthat.R
 
 The validation module checks:
 
-| Rule | Portfolio implementation | Typical response |
+| Rule | Toolkit implementation | Typical response |
 |---|---|---|
 | Missing required | Core fields plus conditional training/follow-up fields | Request source confirmation or exclude from the relevant denominator |
 | Duplicate identifier | Flags every copy of a repeated response ID | Compare submissions and retain only after documented review |
@@ -51,9 +50,9 @@ The validation module checks:
 ### 3. Triage the issue log
 
 Use `data/processed/qc_issues_synthetic.csv` as the working issue list. In a
-real workflow, assign an owner, priority, due date, and resolution note. The
-portfolio keeps `status = Open` because no real data owner exists to confirm a
-correction.
+live workflow, assign an owner, priority, due date, and resolution note. Here,
+`status` remains `Open` because the synthetic issues have no source owner who
+can confirm a correction.
 
 Suggested priorities:
 
@@ -83,4 +82,3 @@ Confirm:
 Only publish a processed dataset or report after automated tests pass and the
 manual Excel/Kobo checks relevant to the release are recorded. Tag the Git
 commit or record its hash in the release note.
-

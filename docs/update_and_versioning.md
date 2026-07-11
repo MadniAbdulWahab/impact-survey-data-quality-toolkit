@@ -16,8 +16,8 @@
 3. Record filename, checksum, row count, survey version, extraction date, and
    source-system query or export settings.
 4. Compare columns with `data/data_dictionary.csv`.
-5. Run the generator only for this portfolio; a real update would use the new
-   field export.
+5. Use the generator only to reproduce the synthetic dataset; a live update
+   would begin with the new source-system export.
 6. Run the R pipeline, R tests, and Quarto render.
 7. Compare current and previous counts: submissions, consented records,
    duplicates, QC flags, and headline indicators.

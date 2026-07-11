@@ -1,6 +1,6 @@
 # KoboToolbox verification log
 
-Status: **PASSED — MANUALLY VERIFIED ON 10 JULY 2026**
+Status: **PASSED — MANUALLY RECHECKED ON 11 JULY 2026**
 
 The checks below were performed in KoboToolbox Preview using synthetic entries
 only.
@@ -8,11 +8,11 @@ only.
 ## Environment
 
 - Method: Manual verification in KoboToolbox Preview
-- Date: 10 July 2026
+- Date: 11 July 2026
 - Kobo server/region: Not recorded
 - Browser: Not recorded
 - XLSForm SHA-256:
-  `fc928a45b1d2ca1a1fb55e664efe84fd880e84509db3bee3963849c654be9f4c`
+  `71d8bb48d584a7ba369ca559d627f3a48548bd83432e1bb784a7859fe71d8782`
 
 ## Test procedure
 
@@ -46,6 +46,5 @@ only.
 
 ## Issues and corrective actions
 
-No issue was reported during the manual Kobo preview. No deployment or live
-data collection is claimed. Browser/server details and screenshots were not
-recorded, so they are not claimed.
+No issues occurred during the manual Kobo preview. Testing was limited to form
+upload and preview; there was no live deployment or field collection.

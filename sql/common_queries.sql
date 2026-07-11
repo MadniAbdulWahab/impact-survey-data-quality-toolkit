@@ -1,4 +1,4 @@
--- Common monitoring queries for the synthetic portfolio database.
+-- Common analysis and quality-control queries for the synthetic database.
 -- Database: data/processed/impact_survey_synthetic.sqlite
 
 -- 1. Responses by fictional region and round.
@@ -38,4 +38,3 @@ SELECT theme,
 FROM qualitative_comments
 GROUP BY theme
 ORDER BY comments DESC;
-

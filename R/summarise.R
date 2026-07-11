@@ -84,7 +84,7 @@ build_summaries <- function(validated, analysis, issues, qualitative_summary) {
 
 save_charts <- function(analysis, issue_summary, qualitative_summary) {
   dir.create(PROJECT_PATHS$figure_dir, recursive = TRUE, showWarnings = FALSE)
-  theme_portfolio <- ggplot2::theme_minimal(base_size = 11) +
+  theme_report <- ggplot2::theme_minimal(base_size = 11) +
     ggplot2::theme(
       plot.title.position = "plot",
       panel.grid.minor = ggplot2::element_blank(),
@@ -103,7 +103,7 @@ save_charts <- function(analysis, issue_summary, qualitative_summary) {
       y = "Record-level flags",
       caption = "Synthetic data; one response can trigger multiple rules."
     ) +
-    theme_portfolio
+    theme_report
 
   satisfaction_plot <- analysis |>
     dplyr::filter(
@@ -123,7 +123,7 @@ save_charts <- function(analysis, issue_summary, qualitative_summary) {
       y = "Satisfaction score (1–5)",
       caption = "Out-of-range values are excluded from the analysis copy."
     ) +
-    theme_portfolio
+    theme_report
 
   participation_plot <- analysis |>
     dplyr::filter(!is.na(survey_round)) |>
@@ -144,7 +144,7 @@ save_charts <- function(analysis, issue_summary, qualitative_summary) {
       fill = "Participated",
       caption = "Synthetic monitoring responses."
     ) +
-    theme_portfolio
+    theme_report
 
   qualitative_plot <- ggplot2::ggplot(
     qualitative_summary,
@@ -158,7 +158,7 @@ save_charts <- function(analysis, issue_summary, qualitative_summary) {
       y = "Comments",
       caption = "Transparent keyword coding of a small synthetic phrase library."
     ) +
-    theme_portfolio
+    theme_report
 
   ggplot2::ggsave(
     file.path(PROJECT_PATHS$figure_dir, "qc_issue_counts.png"),
@@ -189,4 +189,3 @@ save_charts <- function(analysis, issue_summary, qualitative_summary) {
     dpi = 160
   )
 }
-

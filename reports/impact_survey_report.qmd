@@ -1,6 +1,6 @@
 ---
 title: "Impact Survey Data Quality and Monitoring Report"
-subtitle: "Synthetic portfolio demonstration — no real respondents or operations"
+subtitle: "Synthetic dataset — no real respondents or operations"
 date: "2026-07-10"
 format:
   html:
@@ -57,7 +57,7 @@ metric_value <- function(metric_name) {
 
 ## Purpose and data boundary
 
-This report demonstrates a reproducible monitoring and data-quality workflow.
+This report presents a reproducible monitoring and data-quality workflow.
 Every response, identifier, site, and comment is synthetic. The survey does not
 collect names, contact details, addresses, GPS coordinates, or exact birth
 dates. Results must not be interpreted as evidence about a real population or
@@ -148,9 +148,9 @@ gender_participation |>
 ## Synthetic qualitative comments
 
 The optional comments come from a documented synthetic phrase library. A
-transparent keyword rule assigns one theme to each comment. This is useful for
-demonstrating data management and reporting, but it is not a substitute for
-iterative human coding of real qualitative data.
+transparent keyword rule assigns one theme to each comment. This supports an
+inspectable data-management and reporting workflow, but it is not a substitute
+for iterative human coding of real qualitative data.
 
 ```{r}
 #| label: tbl-qualitative-themes
@@ -185,8 +185,9 @@ qualitative_comments |>
 
 - The data-generating assumptions determine every apparent pattern.
 - Deliberate errors are more structured than errors in most live systems.
-- Duplicate handling keeps the first submission identifier for demonstration;
-  a real project would confirm the resolution with the data owner.
+- Duplicate handling keeps the first submission identifier under a documented
+  deterministic rule; a live project would confirm the resolution with the
+  data owner.
 - Invalid and out-of-range values are set to missing only in the analysis copy.
 - Theme coding is based on a small synthetic phrase library and is not suitable
   for inference.

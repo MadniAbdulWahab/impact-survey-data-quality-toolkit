@@ -1,9 +1,8 @@
 """Build the reproducible Excel monitoring template.
 
-The workbook is a portfolio artefact, not a claim that Excel has been tested:
-this script only writes deterministic ``.xlsx`` bytes. The interactive Power
-Query, pivot, and VBA steps are performed and verified by a person, following
-``excel/README.md``.
+This script writes deterministic ``.xlsx`` bytes. Interactive Power Query,
+pivot, and VBA checks are documented separately in ``excel/README.md`` and the
+Excel verification log.
 
 Design:
 
@@ -191,8 +190,8 @@ def build_start_here(workbook: Workbook) -> None:
          "a timestamped QC export into excel/exports/."),
         ("Parity", "The seven QC flags reproduce the R pipeline rules. See the "
          "QC_Rules sheet for the mapping."),
-        ("Honesty", "This file is not marked 'tested' until a person completes the "
-         "checkpoint in docs/verification/excel_test_log.md."),
+        ("Verification", "Build and application-test results are recorded in "
+         "docs/verification/excel_test_log.md."),
     ]
     row = 3
     for heading, body in lines:
@@ -224,7 +223,7 @@ def build_config(workbook: Workbook) -> None:
     params = [
         ("RawDataPath", "Raw data path",
          "data/raw/survey_responses_synthetic.csv",
-         "Set to the full path on your machine before loading the query."),
+         "Set to an absolute path before loading the query."),
         ("ExpectedRowCount", "Expected row count", N_RESPONSES,
          "Power Query and pivots should report this many rows."),
         ("SurveyStart", "Survey start", survey_start, "Earliest valid interview date."),

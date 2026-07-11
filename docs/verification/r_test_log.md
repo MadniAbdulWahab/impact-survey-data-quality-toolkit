@@ -79,5 +79,3 @@ On 10 July 2026, the complete Python/XLSForm and R validation command set was
 run manually. This included the synthetic-data and XLSForm checks, R pipeline,
 R tests, SQLite database checker, Quarto render, and visual inspection of the
 HTML report. The outputs and four charts appeared as expected.
-
-No screenshot or browser evidence is claimed for this acceptance run.

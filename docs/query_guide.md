@@ -5,7 +5,7 @@ The processed SQLite database is
 data. Use saved, reviewable queries and state the denominator and filters in
 every answer.
 
-Run all portfolio database checks without shell-quoting complications:
+Run the database reconciliation checks without shell-quoting complications:
 
 ```powershell
 Rscript scripts/check_database.R
@@ -98,7 +98,7 @@ ORDER BY comments DESC;
 
 ## Answering the same questions in Excel
 
-The Excel workbook answers monitoring questions through Power Query and pivots
+The Excel workbook answers the same data questions through Power Query and pivots
 instead of SQL. The `SurveyRaw` query (`excel/power_query/SurveyRaw.m`) is the
 Excel equivalent of the `survey_responses` table.
 
@@ -118,5 +118,5 @@ state the denominator and filters exactly as you would for a SQL answer.
 > Using the processed synthetic dataset from commit `<hash>`, I counted
 > `<denominator>` unique consented responses after duplicate handling. The
 > requested result is `<value>`. Records with `<relevant rule>` were treated as
-> `<treatment>`. This is a portfolio demonstration and does not describe real
-> programme performance.
+> `<treatment>`. These results describe the synthetic dataset only and do not
+> represent real programme performance.

@@ -1,9 +1,9 @@
 # Excel monitoring workbook
 
-> **Synthetic data only.** Every value here is fictional. Nothing in this folder
-> was claimed to be tested before the checkpoint in
-> [`../docs/verification/excel_test_log.md`](../docs/verification/excel_test_log.md)
-> passed. The tested `.xlsm` and its cached synthetic outputs are now included.
+> **Synthetic data only.** Every value here is fictional. The tested `.xlsm`
+> and its cached synthetic outputs are included; build and application-test
+> results are recorded in
+> [`../docs/verification/excel_test_log.md`](../docs/verification/excel_test_log.md).
 
 This folder holds the Git-friendly sources for an Excel monitoring layer over the
 same synthetic extract the R pipeline uses. Two things live here:
@@ -61,7 +61,7 @@ Perform these in the Excel desktop app, then record the outcome in
 4. **Home ▸ Advanced Editor**, delete the placeholder, and paste all of
    `power_query/SurveyRaw.m`. Click **Done**. Keep the query named `SurveyRaw`.
 5. **Close & Load To… ▸ Table**. Confirm the table reports **420 rows**. The
-   verified pivots use this worksheet table; no Data Model is claimed.
+   verified pivots use this worksheet table rather than the Data Model.
 6. Build the monitoring pivots using the specifications below. Region and Round
    slicers are optional polish and are not present in the verified artifact.
 7. **Alt+F11 ▸ File ▸ Import File…**, import `vba/RefreshAndExportQC.bas`.

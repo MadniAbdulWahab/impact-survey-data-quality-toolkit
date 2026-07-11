@@ -12,7 +12,7 @@ Key outputs:
 - `headline_metrics_synthetic.csv`: compact monitoring indicators
 - `region_round_summary_synthetic.csv`: cross-tabulated monitoring results
 - `qualitative_comments_coded_synthetic.csv`: inspectable theme assignments
-- `impact_survey_synthetic.sqlite`: queryable portfolio database
+- `impact_survey_synthetic.sqlite`: queryable SQLite database
 - `pipeline_manifest.json`: row and QC counts from the latest run
 
 Regenerate from the repository root:
@@ -20,4 +20,3 @@ Regenerate from the repository root:
 ```powershell
 Rscript scripts/run_pipeline.R
 ```
-

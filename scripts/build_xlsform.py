@@ -31,13 +31,13 @@ SURVEY_HEADERS = [
 ]
 
 SURVEY_ROWS = [
-    ["note", "synthetic_notice", DATASET_LABEL, "Portfolio demonstration only", "", "", "", "", "", ""],
+    ["note", "synthetic_notice", DATASET_LABEL, "Synthetic dataset only; do not enter real personal information", "", "", "", "", "", ""],
     ["start", "start", "", "", "", "", "", "", "", ""],
     ["end", "end", "", "", "", "", "", "", "", ""],
     ["deviceid", "deviceid", "", "", "", "", "", "", "", ""],
     ["calculate", "synthetic_data", "", "", "", "", "", "", "'yes'", ""],
     ["calculate", "survey_version", "", "", "", "", "", "", f"'{SURVEY_VERSION}'", ""],
-    ["select_one yes_no", "consent", "Do you agree to continue with this fictional practice survey?", "Do not enter any real personal information.", "yes", "", "", "", "", ""],
+    ["select_one yes_no", "consent", "Do you agree to continue with this synthetic survey?", "Do not enter any real personal information.", "yes", "", "", "", "", ""],
     ["note", "no_consent_note", "Thank you. The survey ends here.", "", "", "${consent} = 'no'", "", "", "", ""],
     ["begin_group", "monitoring", "Monitoring questions", "", "", "${consent} = 'yes'", "", "", "", "field-list"],
     ["select_one survey_round", "survey_round", "Survey round", "", "yes", "", "", "", "", ""],
@@ -106,7 +106,7 @@ for choice_row in CHOICE_ROWS:
 
 SETTINGS_HEADERS = ["form_title", "form_id", "version", "instance_name", "default_language"]
 SETTINGS_ROWS = [[
-    "Impact Survey Data Quality Toolkit - Synthetic Practice Survey",
+    "Impact Survey Data Quality Toolkit - Synthetic Training Follow-up Survey",
     "impact_survey_synthetic",
     SURVEY_VERSION,
     "concat('Synthetic survey - ', ${interview_date})",

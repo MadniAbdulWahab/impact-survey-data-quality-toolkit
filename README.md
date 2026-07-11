@@ -85,8 +85,8 @@ the original evidence intact and makes every reported result reproducible.
 
 ## Visual evidence
 
-The images below were captured from the tested local artifacts, not created as
-mock-ups. See [screenshot provenance](docs/screenshots).
+The images below were captured directly from the tested local artifacts. See
+[screenshot provenance](docs/screenshots).
 
 <table>
   <tr>
@@ -159,7 +159,8 @@ generalisable qualitative research.
 
 ## Verification
 
-I only marked a component complete after running it and recording the result.
+Each verification result is tied to the command or application check that
+produced it.
 
 | Check | Verified result |
 |---|---|
@@ -259,8 +260,8 @@ docs/              procedures, diagrams, verification logs, screenshots
 
 - **Immutable raw data:** I preserve the received evidence and make every
   downstream change traceable.
-- **Injected-issue truth file:** the tests can prove that known problems were
-  detected instead of merely producing plausible-looking counts.
+- **Injected-issue truth file:** tests compare detected problems with known
+  injected cases instead of relying on plausible-looking counts.
 - **Separate validated and analysis datasets:** detecting a problem and deciding
   how to treat it analytically are different decisions, so I keep both visible.
 - **QC in both R and Excel:** R provides reproducible, dataset-wide validation;
@@ -272,12 +273,12 @@ docs/              procedures, diagrams, verification logs, screenshots
 ## Scope and limitations
 
 - All people, sites, responses, comments, and apparent findings are synthetic.
-- KoboToolbox was tested in preview; no live deployment or field collection is
-  claimed.
+- KoboToolbox testing covered form upload and preview logic; the project does
+  not include a live deployment or field collection.
 - The public `.xlsm` retains verified cached outputs but uses a sanitized
   `RawDataPath` placeholder that must be configured locally before refresh.
-- Excel pivots are backed by the loaded worksheet table; no Excel Data Model or
-  slicers are claimed.
+- Excel pivots are backed by the loaded worksheet table; the workbook does not
+  use an Excel Data Model or slicers.
 - Synthetic qualitative comments come from a small phrase library, so the theme
   results show how the method works rather than supporting real inference.
 - For duplicate resolution in this dataset, I keep the first submission ID in

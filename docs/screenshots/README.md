@@ -1,7 +1,7 @@
 # Screenshot provenance
 
 These images were captured on 11 July 2026 from tested local outputs containing
-synthetic data only. They are evidence captures, not mock-ups.
+synthetic data only. Each image comes directly from a tested project artifact.
 
 - `excel_pivot_region_round_correct.png`: captured from the actual
   `Pivot_Region_Round` sheet in the verified macro workbook; grand total 420.

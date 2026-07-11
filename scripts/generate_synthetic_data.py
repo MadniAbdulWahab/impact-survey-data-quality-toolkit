@@ -1,4 +1,4 @@
-"""Generate the portfolio's reproducible synthetic survey data.
+"""Generate reproducible synthetic survey data for the toolkit.
 
 Usage from the repository root:
     python scripts/generate_synthetic_data.py

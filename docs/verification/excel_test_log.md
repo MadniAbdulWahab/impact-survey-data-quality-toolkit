@@ -1,9 +1,9 @@
 # Excel verification log
 
-Status: **PASSED** on 10 July 2026 and publication-audited on 11 July 2026. The workbook was assembled and exercised in
-real Excel through COM automation on this Windows session. Values below are
-observed, not planned. Authentic evidence images captured from the saved
-workbook are under `docs/screenshots/`.
+Status: **PASSED** on 10 July 2026 and publication-audited on 11 July 2026. The
+workbook was assembled and exercised in desktop Excel through COM automation.
+The recorded results and evidence images under `docs/screenshots/` come from
+the saved workbook.
 
 ## Environment
 
@@ -36,7 +36,7 @@ workbook are under `docs/screenshots/`.
 | 2 | `RawDataPath` set on Config | **Pass** |
 | 3 | Blank Query created | **Pass** |
 | 4 | `SurveyRaw.m` loaded; query named `SurveyRaw` | **Pass** — 31 output columns (27 raw + 4 labels) |
-| 5 | Close & Load to worksheet table; row count 420 | **Pass** — 420 rows; no Data Model is claimed |
+| 5 | Close & Load to worksheet table; row count 420 | **Pass** — 420 rows loaded to `SurveyTbl` |
 | 6 | Pivots built | **Pass** — Region×Round and Satisfaction pivots created; slicers are not included |
 | 7 | VBA module imported via Alt+F11 | **Pass** — module `modQCExport`, `Sub RefreshAndExportQC` |
 | 8 | Saved as `impact_survey_monitoring.xlsm` | **Pass** — sanitized verified artifact committed with cached outputs |
@@ -107,7 +107,8 @@ records_with_any_flag,8
   metadata. Config!B3 is a setup placeholder that reviewers replace locally.
 - Authentic workbook and report screenshots are documented in
   `docs/screenshots/README.md`.
-- Slicers and an Excel Data Model are intentionally not claimed.
+- The workbook uses worksheet-backed pivots and does not include slicers or an
+  Excel Data Model.
 
 ## Sign-off
 

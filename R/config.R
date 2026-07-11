@@ -1,7 +1,7 @@
 # Fixed project configuration -------------------------------------------------
 #
-# Dates and code lists are deliberately fixed. This makes validation results
-# reproducible and keeps the rules easy to explain in an interview.
+# Dates and code lists are deliberately fixed so validation results remain
+# reproducible across environments.
 
 SURVEY_START <- as.Date("2025-04-01")
 SURVEY_END <- as.Date("2025-09-30")

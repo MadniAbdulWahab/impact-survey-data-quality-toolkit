@@ -1,6 +1,6 @@
 // SurveyRaw — production import of the synthetic raw extract.
 //
-// Portfolio artefact using synthetic data only. This query reads the CSV path
+// Synthetic data only. This query reads the CSV path
 // from the workbook's RawDataPath named cell (set it on the Config sheet),
 // promotes headers, applies explicit types, trims code values, and joins
 // human-readable labels. The label maps below match the Lookups sheet exactly.
