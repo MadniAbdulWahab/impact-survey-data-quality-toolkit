@@ -11,6 +11,7 @@ only.
 - Date: 11 July 2026
 - Kobo server/region: Not recorded
 - Browser: Not recorded
+- Public form: <https://ee.kobotoolbox.org/x/KTUkyR6W>
 - XLSForm SHA-256:
   `71d8bb48d584a7ba369ca559d627f3a48548bd83432e1bb784a7859fe71d8782`
 
@@ -46,5 +47,7 @@ only.
 
 ## Issues and corrective actions
 
-No issues occurred during the manual Kobo preview. Testing was limited to form
-upload and preview; there was no live deployment or field collection.
+No issues occurred during the manual Kobo preview. The form was subsequently
+deployed at the public URL recorded above, which returned HTTP 200 during the
+publication check. The deployment is restricted to synthetic testing; no real
+field collection or respondent data is included.

@@ -6,7 +6,7 @@ data is disposable; processed data is reproducible and analysis-ready.
 ```mermaid
 flowchart LR
     A[XLSForm source CSVs] --> B[Kobo-ready XLSForm]
-    B -. manual preview and logic test .-> C[KoboToolbox test project]
+    B --> C[Public Kobo deployment]
     D[Fixed-seed Python generator] --> E[(Raw synthetic CSV)]
     D --> F[Injected-issue truth manifest]
     E --> G[R import and type parsing]
@@ -31,4 +31,3 @@ flowchart LR
 5. Excel independently exposes operational QC views from the raw extract.
 6. Kobo, R/Quarto, and Excel receive separate verification logs; passing one
    checkpoint does not imply that another component works.
-

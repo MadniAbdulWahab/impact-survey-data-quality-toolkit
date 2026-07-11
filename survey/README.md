@@ -5,7 +5,9 @@
 
 The form contains no name, phone, email, address, birth-date, or GPS question.
 It exercises survey logic and data-quality controls using synthetic entries
-only; it is not a live deployment.
+only. The public deployment is available at
+<https://ee.kobotoolbox.org/x/KTUkyR6W>; it is not used for real field
+collection.
 
 Structural validation and KoboToolbox preview results are recorded separately
 under `docs/verification/`.

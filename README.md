@@ -19,7 +19,8 @@ administrative, and operational datasets.
 
 **[Download the HTML report](reports/impact_survey_report.html) ·
 [Download the verified Excel workbook](excel/impact_survey_monitoring.xlsm) ·
-[Open the Kobo-ready XLSForm](survey/impact_survey_xlsform.xlsx)**
+[Open the deployed Kobo form](https://ee.kobotoolbox.org/x/KTUkyR6W) ·
+[Download the XLSForm](survey/impact_survey_xlsform.xlsx)**
 
 </div>
 
@@ -47,7 +48,7 @@ across the wider data lifecycle:
 
 | Component | Achievement | Evidence |
 |---|---|---|
-| **Survey collection** | Kobo-ready XLSForm with constraints, skip logic, cascading region/site choices, consent path, and qualitative questions | [XLSForm](survey/impact_survey_xlsform.xlsx) · [Git-friendly source sheets](survey/source/) · [Kobo verification](docs/verification/kobo_test_log.md) |
+| **Survey collection** | Publicly deployed Kobo form and XLSForm source with constraints, skip logic, cascading region/site choices, consent path, and qualitative questions | [Open form](https://ee.kobotoolbox.org/x/KTUkyR6W) · [XLSForm](survey/impact_survey_xlsform.xlsx) · [Git-friendly source sheets](survey/source/) · [Kobo verification](docs/verification/kobo_test_log.md) |
 | **Synthetic survey data** | 420 deterministic responses generated with seed `20260710`, including a machine-readable injected-issue truth file | [Generator](scripts/generate_synthetic_data.py) · [Manifest](data/raw/generation_manifest.json) · [Data dictionary](data/data_dictionary.csv) |
 | **R quality pipeline** | Character-first import, explicit typing, seven validation rules, cleaning audit, descriptive statistics, cross-tabulations, and qualitative theme coding | [R modules](R/) · [Pipeline](scripts/run_pipeline.R) · [R verification](docs/verification/r_test_log.md) |
 | **Database and queries** | SQLite database with four tables, indexes, saved SQL, and a PowerShell-safe reconciliation script | [Database](data/processed/impact_survey_synthetic.sqlite) · [SQL](sql/common_queries.sql) · [Query guide](docs/query_guide.md) |
@@ -60,7 +61,7 @@ across the wider data lifecycle:
 ```mermaid
 flowchart LR
     A[XLSForm source sheets] --> B[Kobo-ready XLSForm]
-    B -. manually verified preview .-> C[KoboToolbox]
+    B --> C[Public Kobo deployment]
 
     D[Fixed-seed Python generator] --> E[(Immutable raw CSV)]
     D --> F[Injected-issue truth file]
@@ -166,7 +167,7 @@ produced it.
 |---|---|
 | Python suite | **18 tests passed**, including deterministic builds and final `.xlsm` package checks |
 | XLSForm | **pyxform 4.5.0 structural validation passed** |
-| KoboToolbox | Upload, preview, constraints, cascading choices, and skip paths **manually verified** |
+| KoboToolbox | Public deployment, upload, preview, constraints, cascading choices, and skip paths **verified** |
 | R suite | **8 test blocks / 22 expectations passed** |
 | SQLite | Four tables and saved query patterns reconciled; clean rebuild hash is deterministic |
 | Quarto | Self-contained HTML report rendered with four embedded charts |
@@ -273,8 +274,8 @@ docs/              procedures, diagrams, verification logs, screenshots
 ## Scope and limitations
 
 - All people, sites, responses, comments, and apparent findings are synthetic.
-- KoboToolbox testing covered form upload and preview logic; the project does
-  not include a live deployment or field collection.
+- The Kobo form is publicly deployed for synthetic testing only; no real field
+  collection or respondent data is included.
 - The public `.xlsm` retains verified cached outputs but uses a sanitized
   `RawDataPath` placeholder that must be configured locally before refresh.
 - Excel pivots are backed by the loaded worksheet table; the workbook does not
