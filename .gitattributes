@@ -7,3 +7,6 @@
 *.jpeg binary
 *.pdf binary
 *.sqlite binary
+
+# The rendered Quarto report is generated output; count the R/Python/SQL source instead.
+reports/*.html linguist-generated=true
